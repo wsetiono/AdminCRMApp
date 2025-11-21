@@ -864,9 +864,6 @@ function initAdminMgmtTable() {
         row.innerHTML = `
             <td>${admin.username}</td>
             <td>${admin.role}</td>
-			<td>
-				<span class="permission-badge">Customers</span><span class="permission-badge">Leads</span><span class="permission-badge">Rewards</span>
-			</td>
             <td>
                 <div class="action-buttons">
                     <button class="btn-action btn-edit" onclick="editMission(${admin.id})" title="Edit Rank">
