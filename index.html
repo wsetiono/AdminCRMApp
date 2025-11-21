@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin CRM - Customer Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-brand">
+            <h3><i class="bi bi-grid-3x3-gap-fill"></i> CRM Dashboard</h3>
+        </div>
+        <div class="nav-menu">
+            <div class="menu-item active" data-section="customers">
+                <i class="bi bi-people-fill"></i> <span>Customers</span>
+            </div>
+            <div class="menu-item" data-section="leads">
+                <i class="bi bi-trophy-fill"></i> <span>Leads</span>
+            </div>
+            <div class="menu-item" data-section="missions">
+                <i class="bi bi-gift-fill"></i> <span>Mission</span>
+            </div>
+			<div class="menu-item" data-section="rewards">
+                <i class="bi bi-people-fill"></i> <span>Reward</span>
+            </div>
+			<div class="menu-item" data-section="rank">
+                <i class="bi bi-people-fill"></i> <span>Rank</span>
+            </div>
+            <div class="menu-item" data-section="whatsapp-template">
+                <i class="bi bi-trophy-fill"></i> <span>WA Template</span>
+            </div>
+            <div class="menu-item" data-section="email-template">
+                <i class="bi bi-gift-fill"></i> <span>Email Template</span>
+            </div>
+			 <div class="menu-item" data-section="game-setting">
+                <i class="bi bi-gift-fill"></i> <span>Game Setting</span>
+            </div>
+			<div class="menu-item" data-section="admin-mgmt">
+                <i class="bi bi-gift-fill"></i> <span>Admin Mgmt</span>
+            </div>
+			 <div class="menu-item" data-section="mission-approval">
+                <i class="bi bi-gift-fill"></i> <span>Mission Approval</span>
+            </div>
+			<div class="menu-item" data-section="loyaltymember-approval">
+                <i class="bi bi-gift-fill"></i> <span>Loyalty Member Approval</span>
+            </div>
+			<div class="menu-item" data-section="#">
+				<div class="user-profile">
+					<div class="user-info" id="userInfo">
+						<span id="displayUsername">Andi</span>
+						<span class="arrow-down">▼</span>
+					</div>
+					<div id="profileDropdown" class="hidden">
+						<a href="#" id="viewProfileLink">Lihat Profile</a>
+						<a href="#" id="changePasswordLink">Ubah Password</a>
+						<a href="#" id="logoutLink">Logout</a>
+					</div>
+				</div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Customers Section -->
+        <div class="content-section active" id="customers-section">
+            <div class="header">
+                <h2>Customer Management</h2>
+				 <button class="btn-primary-custom" onclick="openCustomerModal()">
+                    <i class="bi bi-plus-circle"></i> Add Customer
+                </button>
+            </div>
+
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon customers">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h4>Total Customers</h4>
+                        <p>248</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon loyalty">
+                        <i class="bi bi-award-fill"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h4>Loyalty Members</h4>
+                        <p>67</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="customer-table-container">
+                <div class="table-header">
+                    <h3>Customer List</h3>
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Search customers..." id="searchInput">
+                    </div>
+                </div>
+                <table class="customer-table">
+                    <thead>
+                        <tr>
+                            <th>Customer Name</th>
+                            <th>Email</th>
+                            <th>Whatsapp</th>
+                            <th>Status</th>
+                            <th>Rank</th>
+                            <th>Points</th>
+							<th>Age</th>
+                            <th>Profesi</th>
+                            <th>Gender</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="customerTableBody">
+                        <!-- Customer data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+		
+		 <!-- Leads Section -->
+        <div class="content-section" id="leads-section">
+            <div class="header">
+                <h2>Leads Management</h2>
+				 <button class="btn-primary-custom" onclick="openLeadModal()">
+                    <i class="bi bi-plus-circle"></i> Add Lead
+                </button>
+            </div>
+
+			<div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon customers">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h4>Total Leads</h4>
+                        <p>248</p>
+                    </div>
+                </div>
+				 <div class="stat-card">
+                    <div class="stat-icon loyalty">
+                        <i class="bi bi-award-fill"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h4>Lead Converted to Customer</h4>
+                        <p>67</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lead-table-container">
+                <div class="table-header">
+                    <h3>Lead List</h3>
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Search lead..." id="searchInput">
+                    </div>
+                </div>
+                <table class="lead-table">
+                    <thead>
+                        <tr>
+                            <th>Lead Name</th>
+                            <th>Email</th>
+                            <th>Whatsapp</th>
+							<th>Age</th>
+                            <th>Profesi</th>
+                            <th>Gender</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leadTableBody">
+                        <!-- Lead data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+		
+        <!-- Missions Section -->
+        <div class="content-section" id="missions-section">
+            <div class="header">
+                <h2>Mission Management</h2>
+                <button class="btn-primary-custom" onclick="openAddMissionModal()">
+                    <i class="bi bi-plus-circle"></i> Tambah Misi
+                </button>
+            </div>
+
+            <div class="mission-list-container">
+                <div class="table-header">
+                    <h3>Daftar Misi Loyalty</h3>
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Search missions..." id="missionSearchInput">
+                    </div>
+                </div>
+                <table class="mission-table">
+                    <thead>
+                        <tr>
+                            <th>Nama Misi</th>
+                            <th>Deskripsi</th>
+                            <th>Poin</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="missionTableBody">
+                        <!-- Mission data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Rewards Section -->
+        <div class="content-section" id="rewards-section">
+            <div class="header">
+                <h2>Reward Management</h2>
+                <button class="btn-primary-custom" onclick="openAddRewardModal()">
+                    <i class="bi bi-plus-circle"></i> Tambah Hadiah
+                </button>
+            </div>
+
+            <div class="reward-list-container">
+                <div class="table-header">
+                    <h3>Katalog Reward</h3>
+                     <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Search reward..." id="missionSearchInput">
+                    </div>
+                </div>
+                <table class="reward-table">
+                    <thead>
+                        <tr>
+                            <th>Nama Reward</th>
+                            <th>Dekripsi</th>
+							<th>Poin</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rewardTableBody">
+                        <!-- Reward data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+	
+	 <!-- Rank Section -->
+        <div class="content-section" id="rank-section">
+            <div class="header">
+                <h2>Rank Management</h2>
+                <button class="btn-primary-custom" onclick="openAddRankModal()">
+                    <i class="bi bi-plus-circle"></i> Tambah Rank
+                </button>
+            </div>
+
+            <div class="rank-list-container">
+                <div class="table-header">
+                    <h3>Daftar Loyalty Rank</h3>
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Search rank..." id="missionSearchInput">
+                    </div>
+                </div>
+                <table class="rank-table">
+                    <thead>
+                        <tr>
+                            <th>Nama Rank</th>
+                            <th>Range Poin</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rankTableBody">
+                        <!-- Rank data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+		
+		<!-- Game Setting Section -->
+        <div class="content-section" id="game-setting-section">
+            <div class="header">
+                <h2>Game Setting Management</h2>
+				 <button class="btn-primary-custom" onclick="openAddRankModal()">
+                    <i class="bi bi-plus-circle"></i> Tambah Game Setting
+                </button>
+            </div>
+
+            <div class="game-setting-list-container">
+                <div class="table-header">
+                    <h3>Daftar Game Setting</h3>
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Search game setting..." id="missionSearchInput">
+                    </div>
+                </div>
+                <table class="game-setting-table">
+                    <thead>
+                        <tr>
+                            <th>Tanggal Mulai Periode</th>
+                            <th>Tanggal Selesai Periode</th>
+                            <th>Berapa Kali Bisa Dimainkan Untuk setiap Customer Loyalty Member</th>
+                        </tr>
+                    </thead>
+                    <tbody id="gameSettingTableBody">
+                        <!-- Rank data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+		
+		<!-- Admin Management Section -->
+        <div class="content-section" id="admin-mgmt-section">
+            <div class="header">
+                <h2>Admin Management</h2>
+                <button class="btn-primary-custom" onclick="openAddRankModal()">
+                    <i class="bi bi-plus-circle"></i> Tambah Admin
+                </button>
+            </div>
+
+            <div class="admin-mgmt-list-container">
+                <div class="table-header">
+                    <h3>Daftar Admin Management</h3>
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Search admin..." id="missionSearchInput">
+                    </div>
+                </div>
+                <table class="admin-mgmt-table">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Hak Akses Menu</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminMgmtTableBody">
+                        <!-- Rank data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+	
+	 <!-- Whatsapp Template Section -->
+        <div class="content-section" id="whatsapp-template-section">
+            <div class="header">
+                <h2>Whatsapp Template Management</h2>
+				 <button class="btn-primary-custom" onclick="openAddWhatsappTemplateModal()">
+                    <i class="bi bi-plus-circle"></i> Add Whatsapp Template
+                </button>
+            </div>
+
+            <div class="whatsapp-template-list-container">
+                <div class="table-header">
+                    <h3>Daftar Whatsapp Template</h3>
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Search whatsapp template..." id="missionSearchInput">
+                    </div>
+                </div>
+                <table class="whatsapp-template-table">
+                    <thead>
+                        <tr>
+                            <th>Nama Template</th>
+                            <th>Pesan Template</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="whatsappTemplateTableBody">
+                        <!-- Whatsapp Template data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+		
+		<!-- Email Template Section -->
+        <div class="content-section" id="email-template-section">
+            <div class="header">
+                <h2>Email Template Management</h2>
+				 <button class="btn-primary-custom" onclick="openAddWhatsappTemplateModal()">
+                    <i class="bi bi-plus-circle"></i> Add Email Template
+                </button>
+            </div>
+
+            <div class="email-template-list-container">
+                <div class="table-header">
+                    <h3>Daftar Email Template</h3>
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Search email template..." id="missionSearchInput">
+                    </div>
+                </div>
+                <table class="email-template-table">
+                    <thead>
+                        <tr>
+                            <th>Nama Template</th>
+                            <th>Title Template</th>
+							<th>Body Template</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="emailTemplateTableBody">
+                        <!-- Email Template data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+		
+		 <!-- Mission Approval Section -->
+        <div class="content-section" id="mission-approval-section">
+            <div class="header">
+                <h2>Mission Approval Management</h2>
+            </div>
+
+            <div class="mission-approval-list-container">
+                <div class="table-header">
+                    <h3>Daftar Mission Approval</h3>
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Search mission approval..." id="missionApprovalSearchInput">
+                    </div>
+                </div>
+                <table class="mission-approval-table">
+                    <thead>
+                        <tr>
+                            <th>Nama Lengkap</th>
+                            <th>Email</th>
+                            <th>Whatsapp</th>
+							<th>Misi</th>
+                            <th>Foto Bukti Misi</th>
+                            <th>Tgl Submit</th>
+							<th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="mission-approvalTableBody">
+                        <!-- Mission APproval data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+	
+	    <!-- Loyalty Member Approval Section -->
+        <div class="content-section" id="loyaltymember-approval-section">
+            <div class="header">
+                <h2>Loyalty Member Approval Management</h2>
+            </div>
+
+            <div class="loyaltymember-approval-list-container">
+                <div class="table-header">
+                    <h3>Daftar Loyalty Member Approval</h3>
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Search loyalty member approval..." id="missionSearchInput">
+                    </div>
+                </div>
+                <table class="loyaltymember-approval-table">
+                    <thead>
+                        <tr>
+                            <th>Nama Lengkap</th>
+                            <th>Email</th>
+                            <th>Whatsapp</th>
+							<th>Age</th>
+                            <th>Profesi</th>
+                            <th>Gender</th>
+							<th>Tgl Submit</th>
+							<th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="loyaltymember-approvalTableBody">
+                        <!-- Loyalty Member APproval data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+	
+	<!-- Add Customer Modal -->
+    <div class="modal-overlay" id="customerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Customer</h3>
+                <button class="modal-close" onclick="closeCustomerModal()">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+					 <div class="form-group">
+						<label for="firstName">First Name</label>
+						<input type="text" class="form-control" id="firstName" placeholder="Masukkan Nama Depan Customer">
+					</div>
+				
+					<div class="form-group">
+						<label for="firstName">Last Name</label>
+						<input type="text" class="form-control" id="lastName" placeholder="Masukkan Nama Belakang Customer">
+					</div>
+					
+					<div class="form-group">
+						<label for="whatsappNumber">Whatsapp Number</label>
+						<input type="text" class="form-control" id="whatsappNumber" placeholder="Masukkan Nomor Whatsapp">
+					</div>
+					
+					<div class="form-group">
+						<label for="email">Email</label>
+						<input type="text" class="form-control" id="email" placeholder="Masukkan Email">
+					</div>
+				
+					<div class="form-group">
+						<label for="gender">Gender</label>
+						<select class="form-control" id="location">
+							<option value="">Pilih Gender</option>
+							<option value="lakilaki">Laki-Laki</option>
+							<option value="perempuan">Perempuan</option>
+						</select>
+					</div>
+					
+					<div class="form-group">
+                        <label for="birthday">Birthday</label>
+                        <input type="date" class="form-control" id="birthday">
+                    </div>
+					
+                
+                <div class="form-group">
+                    <label for="course">Kursus yang Diambil</label>
+                    <select class="form-control" id="course">
+                        <option value="">Pilih Kursus</option>
+                        <option value="web-development" data-price="3500000">Web Development - Rp 3.500.000</option>
+                        <option value="mobile-development" data-price="4000000">Mobile Development - Rp 4.000.000</option>
+                        <option value="ui-ux-design" data-price="3000000">UI/UX Design - Rp 3.000.000</option>
+                        <option value="data-science" data-price="5000000">Data Science - Rp 5.000.000</option>
+                        <option value="digital-marketing" data-price="2500000">Digital Marketing - Rp 2.500.000</option>
+                        <option value="graphic-design" data-price="2750000">Graphic Design - Rp 2.750.000</option>
+                        <option value="machine-learning" data-price="6000000">Machine Learning - Rp 6.000.000</option>
+                        <option value="blockchain-development" data-price="5500000">Blockchain Development - Rp 5.500.000</option>
+                    </select>
+                </div>
+                
+                
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary-custom" onclick="closeCustomerModal()">Cancel</button>
+                <button class="btn-primary-custom" onclick="savePurchase()">Save Purchase</button>
+            </div>
+        </div>
+    </div>
+
+	<!-- Add Lead Modal -->
+    <div class="modal-overlay" id="leadModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Lead</h3>
+                <button class="modal-close" onclick="closeLeadModal()">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+					 <div class="form-group">
+						<label for="firstName">First Name</label>
+						<input type="text" class="form-control" id="firstName" placeholder="Masukkan Nama Depan Lead">
+					</div>
+				
+					<div class="form-group">
+						<label for="firstName">Last Name</label>
+						<input type="text" class="form-control" id="lastName" placeholder="Masukkan Nama Belakang Lead">
+					</div>
+					
+					<div class="form-group">
+						<label for="whatsappNumber">Whatsapp Number</label>
+						<input type="text" class="form-control" id="whatsappNumber" placeholder="Masukkan Nomor Whatsapp">
+					</div>
+					
+					<div class="form-group">
+						<label for="email">Email</label>
+						<input type="text" class="form-control" id="email" placeholder="Masukkan Email">
+					</div>
+				
+					<div class="form-group">
+						<label for="gender">Gender</label>
+						<select class="form-control" id="location">
+							<option value="">Pilih Gender</option>
+							<option value="lakilaki">Laki-Laki</option>
+							<option value="perempuan">Perempuan</option>
+						</select>
+					</div>
+					
+					<div class="form-group">
+                        <label for="birthday">Birthday</label>
+                        <input type="date" class="form-control" id="birthday">
+                    </div>
+					
+                
+                <div class="form-group">
+                    <label for="course">Kursus yang Diambil</label>
+                    <select class="form-control" id="course">
+                        <option value="">Pilih Kursus</option>
+                        <option value="web-development" data-price="3500000">Web Development - Rp 3.500.000</option>
+                        <option value="mobile-development" data-price="4000000">Mobile Development - Rp 4.000.000</option>
+                        <option value="ui-ux-design" data-price="3000000">UI/UX Design - Rp 3.000.000</option>
+                        <option value="data-science" data-price="5000000">Data Science - Rp 5.000.000</option>
+                        <option value="digital-marketing" data-price="2500000">Digital Marketing - Rp 2.500.000</option>
+                        <option value="graphic-design" data-price="2750000">Graphic Design - Rp 2.750.000</option>
+                        <option value="machine-learning" data-price="6000000">Machine Learning - Rp 6.000.000</option>
+                        <option value="blockchain-development" data-price="5500000">Blockchain Development - Rp 5.500.000</option>
+                    </select>
+                </div>
+                
+                
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary-custom" onclick="closeCustomerModal()">Cancel</button>
+                <button class="btn-primary-custom" onclick="savePurchase()">Save Purchase</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- History Modal -->
+    <div class="modal-overlay" id="historyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Customer Activity History</h3>
+                <button class="modal-close" onclick="closeHistoryModal()">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="customer-info">
+                    <div class="customer-name">
+                        <img src="https://picsum.photos/seed/customer1/40/40.jpg" alt="Customer" class="customer-avatar">
+                        <span id="historyCustomerName">Andi Pratama</span>
+                    </div>
+                </div>
+                
+                <div class="loyalty-progress">
+                    <div class="loyalty-progress-header">
+                        <span>Loyalty Progress</span>
+                        <span id="loyaltyPoints">350/500 Points</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 70%"></div>
+                    </div>
+                </div>
+                
+                <h4 class="mt-4 mb-3">Purchase History</h4>
+                <div id="historyItems">
+                    <!-- History items will be populated here -->
+                </div>
+                
+                <h4 class="mt-4 mb-3">Loyalty Missions</h4>
+                <div id="loyaltyMissions">
+                    <!-- Loyalty missions will be populated here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary-custom" onclick="closeHistoryModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loyalty Mission Modal -->
+    <div class="modal-overlay" id="loyaltyMissionModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Submit Loyalty Mission</h3>
+                <button class="modal-close" onclick="closeLoyaltyMissionModal()">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="missionCustomer">Nama Customer</label>
+                    <select class="form-control" id="missionCustomer">
+                        <option value="">Pilih Customer</option>
+                        <option value="1">Andi Pratama</option>
+                        <option value="2">Siti Nurhaliza</option>
+                        <option value="3">Budi Santoso</option>
+                        <option value="4">Dewi Kartika</option>
+                        <option value="5">Eko Wijaya</option>
+                        <option value="6">Fitri Handayani</option>
+                        <option value="7">Hendra Kusuma</option>
+                        <option value="8">Indah Permatasari</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Pilih Misi yang Telah Dilakukan</label>
+                    <div id="missionList">
+                        <!-- Mission items will be populated here -->
+                    </div>
+                </div>
+                
+                <div id="missionDetails">
+                    <!-- Mission details will be populated here based on selected mission -->
+                </div>
+                
+                <div class="form-group">
+                    <label for="missionNotes">Catatan Tambahan (Opsional)</label>
+                    <textarea class="form-control" id="missionNotes" rows="3" placeholder="Tambahkan catatan jika diperlukan"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary-custom" onclick="closeLoyaltyMissionModal()">Cancel</button>
+                <button class="btn-primary-custom" onclick="submitLoyaltyMission()">Submit Mission</button>
+                <button class="btn-whatsapp-custom" onclick="sendWhatsAppMarketing()">
+                    <i class="bi bi-whatsapp"></i> Send WhatsApp Marketing Promo
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Mission Modal -->
+    <div class="modal-overlay" id="addWhatsappTemplateModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Tambah Misi Baru</h3>
+                <button class="modal-close" onclick="closeAddWhatsappTemplateModal()">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="newWhatsappTemplateName">Nama Whatsapp Template</label>
+                    <input type="text" class="form-control" id="newWhatsappTemplateName" placeholder="Masukkan nama whatsapp template">
+                </div>
+                <div class="form-group">
+                    <label for="newWhatsappTemplateDescription">Deskripsi Whatsapp Template</label>
+                    <textarea class="form-control" id="newWhatsappTemplateDescription" rows="3" placeholder="Masukkan deskripsi whatsapp template"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="newWhatsappTemplateStatus">Status</label>
+                    <select class="form-control" id="newWhatsappTemplateStatus">
+                        <option value="active">Aktif</option>
+                        <option value="inactive">Tidak Aktif</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary-custom" onclick="closeAddWhatsappTemplateModal()">Batal</button>
+                <button class="btn-primary-custom" onclick="addNewWhatsappTemplate()">Simpan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Reward Modal -->
+    <div class="modal-overlay" id="addRewardModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Tambah Hadiah Baru</h3>
+                <button class="modal-close" onclick="closeAddRewardModal()">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="rewardName">Nama Hadiah</label>
+                    <input type="text" class="form-control" id="rewardName" placeholder="Masukkan nama hadiah">
+                </div>
+                <div class="form-group">
+                    <label for="rewardCategory">Kategori</label>
+                    <select class="form-control" id="rewardCategory">
+                        <option value="">Pilih Kategori</option>
+                        <option value="diskon">Diskon</option>
+                        <option value="voucher">Voucher Belanja</option>
+                        <option value="kursus">Kursus Gratis</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="rewardDescription">Deskripsi</label>
+                    <textarea class="form-control" id="rewardDescription" rows="3" placeholder="Masukkan deskripsi hadiah"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="rewardPoints">Poin yang Diperlukan</label>
+                    <input type="number" class="form-control" id="rewardPoints" placeholder="Masukkan poin yang diperlukan">
+                </div>
+                <div class="form-group">
+                    <label for="rewardImage">URL Gambar Hadiah</label>
+                    <input type="text" class="form-control" id="rewardImage" placeholder="https://example.com/image.jpg">
+                </div>
+                <div class="form-group">
+                    <label for="rewardStatus">Status</label>
+                    <select class="form-control" id="rewardStatus">
+                        <option value="available">Tersedia</option>
+                        <option value="unavailable">Tidak Tersedia</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary-custom" onclick="closeAddRewardModal()">Batal</button>
+                <button class="btn-primary-custom" onclick="addNewReward()">Simpan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <div class="notification-icon success">
+            <i class="bi bi-check-circle-fill"></i>
+        </div>
+        <div class="notification-content">
+            <h4>Success!</h4>
+            <p id="notificationMessage">Mission submitted successfully.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

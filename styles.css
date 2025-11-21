@@ -1,0 +1,965 @@
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --accent-color: #f72585;
+    --light-bg: #f8f9fa;
+    --dark-text: #212529;
+    --success-color: #06ffa5;
+    --warning-color: #ffbe0b;
+    --danger-color: #fb5607;
+    --whatsapp-color: #25D366;
+    --diskon-color: #ff6b6b;
+    --voucher-color: #4ecdc4;
+    --kursus-color: #3498db;
+	--envelope-color: #436133;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+}
+
+/* Top Navigation */
+.top-nav {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 15px 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+	font-size: 12px;
+}
+
+.nav-brand h3 {
+    margin: 0;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+	font-size: 12px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 20px;
+}
+
+.menu-item {
+    padding: 10px 1px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-item.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.main-content {
+    padding: 20px;
+    padding-top: 30px;
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+.header {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.stat-icon.customers {
+    background-color: rgba(67, 97, 238, 0.1);
+    color: var(--primary-color);
+}
+
+.stat-icon.loyalty {
+    background-color: rgba(247, 37, 133, 0.1);
+    color: var(--accent-color);
+}
+
+.stat-icon.revenue {
+    background-color: rgba(6, 255, 165, 0.1);
+    color: var(--success-color);
+}
+
+.stat-info h4 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #6c757d;
+    margin-bottom: 5px;
+}
+
+.stat-info p {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.customer-table-container, .lead-table-container, .mission-list-container, .rank-list-container, .reward-list-container, .whatsapp-template-list-container, .loyaltymember-approval-list-container, .mission-approval-list-container, .admin-mgmt-list-container, .game-setting-list-container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-box, .filter-box {
+    position: relative;
+    width: 300px;
+}
+
+.search-box input, .filter-box select {
+    width: 100%;
+    padding: 10px 15px 10px 40px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.search-box input:focus, .filter-box select:focus {
+    border-color: var(--primary-color);
+}
+
+.search-box i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+}
+
+.customer-table, .lead-table, .mission-table, .rank-table, .whatsapp-template-table, .loyaltymember-approval-table, .mission-approval-table, .admin-mgmt-table, .game-setting-table, .email-template-table, .reward-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1200px;
+}
+
+.customer-table th, .lead-table th, .mission-table th, .rank-table th, .whatsapp-template-table th, .loyaltymember-approval-table th, .mission-approval-table th, .admin-mgmt-table th, .game-setting-table th, .email-template-table th, .reward-table th {
+    text-align: left;
+    padding: 12px 15px;
+    border-bottom: 2px solid #f0f0f0;
+    font-weight: 600;
+    color: #6c757d;
+    white-space: nowrap;
+}
+
+.customer-table td, .lead-table td, .mission-table td, .rank-table td, .whatsapp-template-table td, .loyaltymember-approval-table td, .mission-approval-table td, .admin-mgmt-table td, .game-setting-table td, .email-template-table td, .reward-table td {
+    padding: 5px;
+    border-bottom: 1px solid #f0f0f0;
+    white-space: nowrap;
+}
+
+.customer-table tr:hover, .lead-table tr:hover, .mission-table tr:hover, .rank-table tr:hover, .whatsapp-template-table tr:hover, .loyaltymember-approval-table tr:hover, .mission-approval-table tr:hover, .admin-mgmt-table tr:hover, .game-setting-table tr:hover, .email-template-table tr:hover, .reward-table tr:hover {
+    background-color: #f8f9fa;
+}
+
+.customer-name, .lead-name {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.customer-avatar, .lead-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.loyalty-badge {
+    background: linear-gradient(135deg, #f72585, #b5179e);
+    color: white;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.customer-type {
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.type-vip {
+    background-color: rgba(255, 193, 7, 0.1);
+    color: var(--warning-color);
+}
+
+.type-regular {
+    background-color: rgba(108, 117, 125, 0.1);
+    color: #6c757d;
+}
+
+.customer-rank {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.mission-status {
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.status-active {
+    background-color: rgba(6, 255, 165, 0.1);
+    color: var(--success-color);
+}
+
+.status-inactive {
+    background-color: rgba(251, 86, 7, 0.1);
+    color: var(--danger-color);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.btn-action {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-view {
+    background-color: rgba(67, 97, 238, 0.1);
+    color: var(--primary-color);
+}
+
+.btn-view:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-loyalty-mission {
+    background-color: rgba(247, 37, 133, 0.1);
+    color: var(--accent-color);
+}
+
+.btn-loyalty-mission:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.btn-edit {
+    background-color: rgba(255, 193, 7, 0.1);
+    color: var(--warning-color);
+}
+
+.btn-edit:hover {
+    background-color: var(--warning-color);
+    color: white;
+}
+
+.btn-delete {
+    background-color: rgba(251, 86, 7, 0.1);
+    color: var(--danger-color);
+}
+
+.btn-delete:hover {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.btn-primary-custom {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary-custom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+}
+
+.btn-whatsapp-custom {
+    background-color: var(--whatsapp-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-whatsapp-custom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-envelope-custom {
+    background-color: var(--envelope-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-envelope-custom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+}
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    padding: 20px;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-weight: 600;
+}
+
+.modal-close {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background-color: #e0e0e0;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.modal-footer {
+    padding: 20px;
+    border-top: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-secondary-custom {
+    background-color: #f0f0f0;
+    color: var(--dark-text);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary-custom:hover {
+    background-color: #e0e0e0;
+}
+
+.history-item {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.history-date {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.history-status {
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.status-completed {
+    background-color: rgba(6, 255, 165, 0.1);
+    color: var(--success-color);
+}
+
+.status-pending {
+    background-color: rgba(255, 190, 11, 0.1);
+    color: var(--warning-color);
+}
+
+.history-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-label {
+    font-size: 12px;
+    color: #6c757d;
+    margin-bottom: 3px;
+}
+
+.detail-value {
+    font-weight: 500;
+}
+
+.loyalty-progress {
+    margin-top: 20px;
+}
+
+.loyalty-progress-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    height: 10px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 10px;
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transform: translateX(400px);
+    transition: transform 0.3s ease;
+    z-index: 2000;
+}
+
+.notification.show {
+    transform: translateX(0);
+}
+
+.notification-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notification-icon.success {
+    background-color: rgba(6, 255, 165, 0.1);
+    color: var(--success-color);
+}
+
+.notification-content h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.notification-content p {
+    margin: 0;
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.mission-item {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.mission-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.mission-item.selected {
+    border-color: var(--primary-color);
+    background-color: rgba(67, 97, 238, 0.05);
+}
+
+.mission-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.mission-title {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.mission-points {
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.mission-description {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 10px;
+}
+
+.mission-details {
+    display: none;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.mission-item.selected .mission-details {
+    display: block;
+}
+
+.points-animation {
+    position: fixed;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--success-color);
+    pointer-events: none;
+    z-index: 3000;
+    animation: floatUp 2s ease-out forwards;
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+}
+
+.reward-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.reward-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.reward-card:hover {
+    transform: translateY(-5px);
+}
+
+.reward-card.diskon {
+    border-left: 4px solid var(--diskon-color);
+}
+
+.reward-card.voucher {
+    border-left: 4px solid var(--voucher-color);
+}
+
+.reward-card.kursus {
+    border-left: 4px solid var(--kursus-color);
+}
+
+.reward-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 15px;
+}
+
+.reward-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.reward-category {
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.reward-category.diskon {
+    background-color: rgba(255, 107, 107, 0.1);
+    color: var(--diskon-color);
+}
+
+.reward-category.voucher {
+    background-color: rgba(78, 205, 196, 0.1);
+    color: var(--voucher-color);
+}
+
+.reward-category.kursus {
+    background-color: rgba(52, 152, 219, 0.1);
+    color: var(--kursus-color);
+}
+
+.reward-points {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.reward-description {
+    font-size: 14px;
+    color: #6c757d;
+    margin-bottom: 15px;
+}
+
+.reward-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.reward-status {
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.reward-status.available {
+    background-color: rgba(6, 255, 165, 0.1);
+    color: var(--success-color);
+}
+
+.reward-status.unavailable {
+    background-color: rgba(251, 86, 7, 0.1);
+    color: var(--danger-color);
+}
+
+.reward-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.permission-badge {
+	display: inline-block;
+	padding: 0.25rem 0.75rem;
+	background-color: #dbeafe;
+	color: #1e40af;
+	border-radius: 9999px;
+	font-size: 0.875rem;
+	font-weight: 500;
+	margin-right: 0.25rem;
+}
+
+@media (max-width: 768px) {
+    .top-nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .nav-menu {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .main-content {
+        padding: 15px;
+        padding-top: 20px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .customer-table, .lead-table, .mission-table {
+        font-size: 14px;
+    }
+    
+    .customer-table th, .customer-table td, .lead-table th, .lead-table td, .mission-table th, .mission-table td {
+        padding: 10px 8px;
+    }
+    
+    .modal-footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .btn-whatsapp-custom {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .reward-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*User Profile*/
+/* --- Dropdown Profil User --- */
+.user-profile {
+    position: relative;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.user-info:hover {
+    background-color: var(--secondary-color);
+}
+
+.user-info span {
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+.arrow-down {
+    font-size: 12px;
+    color: var(--text-color);
+}
+
+#profileDropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 180px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+
+#profileDropdown a {
+    display: block;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s;
+	background-color: blue;
+}
+
+#profileDropdown a:hover {
+    background-color: var(--secondary-color);
+}
+
+/* --- Utility Class --- */
+.hidden {
+    display: none !important;
+}
