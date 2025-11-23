@@ -2,7 +2,7 @@
 const customers = [
     { 
         id: 1, 
-        name: 'Andi Pratama', 
+        name: 'Andi Pratamo', 
         email: 'andi@example.com', 
         whatsapp: '08123456789', 
         isLoyalty: true, 
@@ -121,6 +121,42 @@ const customers = [
 		gender: 'Female'
     }
 ];
+
+// Sample instructor data
+const instructors = [
+    { 
+        id: 1, 
+        name: 'Andi Pratama', 
+        email: 'andi@example.com',  
+		dob: '1988-05-09',
+		gender: 'Male'
+    },
+    { 
+        id: 1, 
+        name: 'Mira Sarado', 
+        email: 'mira@example.com',  
+		dob: '1988-05-09',
+		gender: 'Female'
+    }
+];
+
+// Sample programs data
+const programs = [
+    { 
+        id: 1, 
+        name: 'Intro to 3d modelling', 
+        jmlsesi: '15 jam',  
+		instructor: 'Andi Pratama, Mira Sarado',
+		studentEnrolled: 'Andi Pratamo, Siti Nurhaliza' 
+    },
+    { 
+        id: 2, 
+        name: 'Intro to 2d modelling', 
+        jmlsesi: '15 jam',  
+		instructor: 'Andi Pratamo, Siti Nurhaliza' 
+    },
+];
+
 
 // Sample lead data
 const leads = [
@@ -300,25 +336,29 @@ const masterRanks = [
 		id: 1,
 		name: 'Explorer',
 		pointAwal: 0,
-		pointAkhir: 999
+		pointAkhir: 999,
+		penambahanPoin: 50
 	},
 	{
 		id: 2,
 		name: 'Achiever',
 		pointAwal: 1000,
-		pointAkhir: 1999
+		pointAkhir: 1999,
+		penambahanPoin: 100
 	},
 	{
 		id: 3,
 		name: 'Champion',
 		pointAwal: 2000,
-		pointAkhir: 2999
+		pointAkhir: 2999,
+		penambahanPoin: 150
 	},
 	{
 		id: 4,
 		name: 'Legend',
 		pointAwal: 3000,
-		pointAkhir: 9999
+		pointAkhir: 9999,
+		penambahanPoin: 200
 	},
 ];
 
@@ -428,6 +468,13 @@ const masterMissionApprovals = [
 
 // Master missions list
 const masterMissions = [
+    { 
+        id: 0, 
+        name: 'Absen kehadiran', 
+        description: 'Absen kehadiran per sesi', 
+        points: 100,
+        status: 'active'
+    },
     { 
         id: 1, 
         name: 'Beli kursus senilai 1 juta', 
@@ -738,6 +785,69 @@ function initLeadTable() {
 }
 
 
+// Initialize instructor table
+function initInstructorTable() {
+    const tableBody = document.getElementById('instructorTableBody');
+    tableBody.innerHTML = '';
+    
+    instructors.forEach(instructor => {
+        const row = document.createElement('tr');
+		const age = calculateAge(instructor.dob);
+        
+        row.innerHTML = `
+            <td>
+               ${instructor.name}
+            </td>
+            <td>${instructor.email}</td>
+            <td>${instructor.whatsapp}</td>
+            <td>${age}</td>
+            <td>${instructor.gender}</td>
+			<td>
+                <div class="action-buttons">
+                    <button class="btn-action btn-edit" onclick="editMission(${instructor.id})" title="Edit Mission">
+                        <i class="bi bi-pencil-fill"></i>
+                    </button>
+                    <button class="btn-action btn-delete" onclick="deleteMission(${instructor.id})" title="Delete Mission">
+                        <i class="bi bi-trash-fill"></i>
+                    </button>
+                </div>
+            </td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
+
+// Initialize program table
+function initProgramTable() {
+    const tableBody = document.getElementById('programsTableBody');
+    tableBody.innerHTML = '';
+    
+    programs.forEach(program => {
+        const row = document.createElement('tr');
+        
+        row.innerHTML = `
+            <td>
+               ${program.name}
+            </td>
+            <td>${program.jmlsesi}</td>
+            <td>${program.instructor}</td>
+            <td>${program.studentEnrolled}</td>
+			<td>
+                <div class="action-buttons">
+                    <button class="btn-action btn-edit" onclick="editMission(${program.id})" title="Edit Mission">
+                        <i class="bi bi-pencil-fill"></i>
+                    </button>
+                    <button class="btn-action btn-delete" onclick="deleteMission(${program.id})" title="Delete Mission">
+                        <i class="bi bi-trash-fill"></i>
+                    </button>
+                </div>
+            </td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
+
+
 // Initialize mission table
 function initMissionTable() {
     const tableBody = document.getElementById('missionTableBody');
@@ -780,8 +890,9 @@ function initRankTable() {
         
         row.innerHTML = `
             <td>${rank.name}</td>
-            <td>${rank.pointAwal}</td>
-            <td>${rank.pointAkhir} poin</td>
+            <td>${rank.pointAwal}-${rank.pointAkhir} poin</td>
+            <td>Absen Kehadiran</td>
+			<td>${rank.penambahanPoin}</td>
             <td>
                 <div class="action-buttons">
                     <button class="btn-action btn-edit" onclick="editMission(${rank.id})" title="Edit Rank">
@@ -1910,6 +2021,8 @@ document.getElementById('missionSearchInput').addEventListener('input', function
 document.addEventListener('DOMContentLoaded', function() {
     initCustomerTable();
 	initLeadTable();
+	initInstructorTable();
+	initProgramTable();
     initMissionTable();
 	initWhatsappTemplateTable();
 	initEmailTemplateTable();

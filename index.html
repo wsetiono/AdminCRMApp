@@ -16,7 +16,13 @@
         </div>
         <div class="nav-menu">
             <div class="menu-item active" data-section="customers">
-                <i class="bi bi-people-fill"></i> <span>Customers</span>
+                <i class="bi bi-people-fill"></i> <span>Students</span>
+            </div>
+			 <div class="menu-item" data-section="instructors">
+                <i class="bi bi-people-fill"></i> <span>Instructors</span>
+            </div>
+			<div class="menu-item" data-section="programs">
+                <i class="bi bi-people-fill"></i> <span>Programs</span>
             </div>
             <div class="menu-item" data-section="leads">
                 <i class="bi bi-trophy-fill"></i> <span>Leads</span>
@@ -69,9 +75,9 @@
         <!-- Customers Section -->
         <div class="content-section active" id="customers-section">
             <div class="header">
-                <h2>Customer Management</h2>
+                <h2>Student Management</h2>
 				 <button class="btn-primary-custom" onclick="openCustomerModal()">
-                    <i class="bi bi-plus-circle"></i> Add Customer
+                    <i class="bi bi-plus-circle"></i> Add Student/Customer
                 </button>
             </div>
 
@@ -81,7 +87,7 @@
                         <i class="bi bi-people-fill"></i>
                     </div>
                     <div class="stat-info">
-                        <h4>Total Customers</h4>
+                        <h4>Total Student</h4>
                         <p>248</p>
                     </div>
                 </div>
@@ -98,7 +104,7 @@
 
             <div class="customer-table-container">
                 <div class="table-header">
-                    <h3>Customer List</h3>
+                    <h3>Student List</h3>
                     <div class="search-box">
                         <i class="bi bi-search"></i>
                         <input type="text" placeholder="Search customers..." id="searchInput">
@@ -125,6 +131,100 @@
                 </table>
             </div>
         </div>
+		
+		<!-- Instructors Section -->
+        <div class="content-section active" id="instructors-section">
+            <div class="header">
+                <h2>Instructor Management</h2>
+				 <button class="btn-primary-custom" onclick="openCustomerModal()">
+                    <i class="bi bi-plus-circle"></i> Add Instructor
+                </button>
+            </div>
+
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon customers">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h4>Total Instructor</h4>
+                        <p>20</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="instructor-table-container">
+                <div class="table-header">
+                    <h3>Instructor List</h3>
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Search instructors..." id="searchInput">
+                    </div>
+                </div>
+                <table class="instructor-table">
+                    <thead>
+                        <tr>
+                            <th>Instructor Name</th>
+                            <th>Email</th>
+                            <th>Whatsapp</th>
+							<th>Age</th>
+                            <th>Gender</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="instructorTableBody">
+                        <!-- Instructor data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+		
+			<!-- Programs Section -->
+        <div class="content-section active" id="programs-section">
+            <div class="header">
+                <h2>Program Management</h2>
+				 <button class="btn-primary-custom" onclick="openCustomerModal()">
+                    <i class="bi bi-plus-circle"></i> Add Program
+                </button>
+            </div>
+
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon customers">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h4>Total Program</h4>
+                        <p>20</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="programs-table-container">
+                <div class="table-header">
+                    <h3>Programs List</h3>
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Search instructors..." id="searchInput">
+                    </div>
+                </div>
+                <table class="programs-table">
+                    <thead>
+                        <tr>
+                            <th>Program Name</th>
+                            <th>Jml Sesi</th>
+                            <th>Instructor</th>
+							<th>Student</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="programsTableBody">
+                        <!-- Instructor data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+		
 		
 		 <!-- Leads Section -->
         <div class="content-section" id="leads-section">
@@ -273,6 +373,8 @@
                         <tr>
                             <th>Nama Rank</th>
                             <th>Range Poin</th>
+							<th>Misi</th>
+							<th>Penambahan Poin</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
