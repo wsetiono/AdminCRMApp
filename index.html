@@ -18,23 +18,33 @@
             <div class="menu-item active" data-section="customers">
                 <i class="bi bi-people-fill"></i> <span>Students</span>
             </div>
+			<div class="menu-item" data-section="leads">
+                <i class="bi bi-trophy-fill"></i> <span>Leads</span>
+            </div>
 			 <div class="menu-item" data-section="instructors">
                 <i class="bi bi-people-fill"></i> <span>Instructors</span>
             </div>
 			<div class="menu-item" data-section="programs">
                 <i class="bi bi-people-fill"></i> <span>Programs</span>
             </div>
-            <div class="menu-item" data-section="leads">
-                <i class="bi bi-trophy-fill"></i> <span>Leads</span>
+			<div class="menu-item" data-section="enrollments">
+                <i class="bi bi-people-fill"></i> <span>Enrollment</span>
             </div>
-            <div class="menu-item" data-section="missions">
+       
+			<div class="menu-item" data-section="rank">
+                <i class="bi bi-people-fill"></i> <span>Rank</span>
+            </div>
+			<div class="menu-item" data-section="missions">
                 <i class="bi bi-gift-fill"></i> <span>Mission</span>
+            </div>
+			<div class="menu-item" data-section="rankmission">
+                <i class="bi bi-people-fill"></i> <span>Rank Mission</span>
+            </div>
+			 <div class="menu-item" data-section="resetmissions">
+                <i class="bi bi-gift-fill"></i> <span>Reset Mission</span>
             </div>
 			<div class="menu-item" data-section="rewards">
                 <i class="bi bi-people-fill"></i> <span>Reward</span>
-            </div>
-			<div class="menu-item" data-section="rank">
-                <i class="bi bi-people-fill"></i> <span>Rank</span>
             </div>
             <div class="menu-item" data-section="whatsapp-template">
                 <i class="bi bi-trophy-fill"></i> <span>WA Template</span>
@@ -48,6 +58,9 @@
 			<div class="menu-item" data-section="admin-mgmt">
                 <i class="bi bi-gift-fill"></i> <span>Admin Mgmt</span>
             </div>
+			<!--<div class="menu-item" data-section="instructor-mgmt">
+                <i class="bi bi-gift-fill"></i> <span>Instructor Mgmt</span>
+            </div>-->
 			 <div class="menu-item" data-section="mission-approval">
                 <i class="bi bi-gift-fill"></i> <span>Mission Approval</span>
             </div>
@@ -77,7 +90,7 @@
             <div class="header">
                 <h2>Student Management</h2>
 				 <button class="btn-primary-custom" onclick="openCustomerModal()">
-                    <i class="bi bi-plus-circle"></i> Add Student/Customer
+                    <i class="bi bi-plus-circle"></i> Add Student
                 </button>
             </div>
 
@@ -113,7 +126,7 @@
                 <table class="customer-table">
                     <thead>
                         <tr>
-                            <th>Customer Name</th>
+                            <th>Student Name</th>
                             <th>Email</th>
                             <th>Whatsapp</th>
                             <th>Status</th>
@@ -136,7 +149,7 @@
         <div class="content-section" id="instructors-section">
             <div class="header">
                 <h2>Instructor Management</h2>
-				 <button class="btn-primary-custom" onclick="openCustomerModal()">
+				 <button class="btn-primary-custom" onclick="openInstructorModal()">
                     <i class="bi bi-plus-circle"></i> Add Instructor
                 </button>
             </div>
@@ -183,7 +196,7 @@
         <div class="content-section" id="programs-section">
             <div class="header">
                 <h2>Program Management</h2>
-				 <button class="btn-primary-custom" onclick="openCustomerModal()">
+				 <button class="btn-primary-custom" onclick="openProgramModal()">
                     <i class="bi bi-plus-circle"></i> Add Program
                 </button>
             </div>
@@ -212,9 +225,9 @@
                     <thead>
                         <tr>
                             <th>Program Name</th>
-                            <th>Jml Sesi</th>
+                            <!--<th>Jml Sesi</th>
                             <th>Instructor</th>
-							<th>Student</th>
+							<th>Student</th>-->
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -225,6 +238,62 @@
             </div>
         </div>
 		
+			<!-- Enrollments Section -->
+        <div class="content-section" id="enrollments-section">
+            <div class="header">
+                <h2>Enrollment Management</h2>
+				 <button class="btn-primary-custom" onclick="openEnrollmentModal()">
+                    <i class="bi bi-plus-circle"></i> Add Enrollemnt
+                </button>
+            </div>
+
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon customers">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h4>Total Enrollment</h4>
+                        <p>20</p>
+                    </div>
+                </div>
+            </div>
+			
+			<div class="form-group">
+					<label for="gender">Nama Student</label>
+					<select class="form-select w-25" id="location">
+						<option value="">Pilih Student Name</option>
+						<option value="lakilaki">Joni</option>
+						<option value="perempuan">Siti Nurhaliza</option>
+						<option value="lakilaki">Juan Nurhaliza</option>
+					</select>
+				</div>
+				
+
+            <div class="enrollments-table-container">
+                <div class="table-header">
+                    <h3>Enrollments List</h3>
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Search enrollments..." id="searchInput">
+                    </div>
+                </div>
+                <table class="enrollments-table">
+                    <thead>
+                        <tr>
+							<th>Program Name</th>
+                            <th>Jml Sesi</th>
+                            <!--<th>Instructor</th>
+							<th>Student</th>-->
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="enrollmentsTableBody">
+                        <!-- Instructor data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
 		
 		 <!-- Leads Section -->
         <div class="content-section" id="leads-section">
@@ -305,12 +374,47 @@
                         <tr>
                             <th>Nama Misi</th>
                             <th>Deskripsi</th>
-                            <th>Poin</th>
                             <th>Status</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody id="missionTableBody">
+                        <!-- Mission data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+		<!-- Reset Missions Section -->
+        <div class="content-section" id="resetmissions-section">
+            <div class="header">
+                <h2>Reset Mission Management</h2>
+                <button class="btn-primary-custom" onclick="openAddResetMissionModal()">
+                    <i class="bi bi-plus-circle"></i> Tambah Reset Misi
+                </button>
+            </div>
+
+            <div class="resetmission-list-container">
+                <div class="table-header">
+                    <h3>Daftar Reset Misi Loyalty</h3>
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Search missions..." id="missionSearchInput">
+                    </div>
+                </div>
+                <table class="resetmission-table">
+                    <thead>
+                        <tr>
+                            <th>Nama Misi</th>
+                            <th>Daily/Weekly/Lifetime Mission</th>
+                            <th>IsReset</th>
+							<th>Reset Every ?</th>
+							<th>Max Attempt</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="resetmissionTableBody">
                         <!-- Mission data will be populated here -->
                     </tbody>
                 </table>
@@ -339,6 +443,7 @@
                         <tr>
                             <th>Nama Reward</th>
                             <th>Dekripsi</th>
+							<th>Gambar Reward</th>
 							<th>Poin</th>
                             <th>Actions</th>
                         </tr>
@@ -351,7 +456,7 @@
         </div>
     </div>
 	
-	 <!-- Rank Section -->
+		 <!-- Rank  Section -->
         <div class="content-section" id="rank-section">
             <div class="header">
                 <h2>Rank Management</h2>
@@ -368,17 +473,64 @@
                         <input type="text" placeholder="Search rank..." id="missionSearchInput">
                     </div>
                 </div>
-                <table class="rank-table">
+                <table class="rank-table longTextStillVisible">
                     <thead>
                         <tr>
                             <th>Nama Rank</th>
-                            <th>Range Poin</th>
-							<th>Misi</th>
-							<th>Penambahan Poin</th>
+							<th>Range Poin</th>
+							<th>Icon</th>
+							<th>Benefit I</th>
+							<th>Benefit II</th>
+							<th>Benefit III</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody id="rankTableBody">
+                        <!-- Rank data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+	
+	 <!-- Rank Mission Section -->
+        <div class="content-section" id="rankmission-section">
+            <div class="header">
+                <h2>Rank dan Mission Management</h2>
+                <button class="btn-primary-custom" onclick="openAddRankMissionModal()">
+                    <i class="bi bi-plus-circle"></i> Tambah Rank dan Mission
+                </button>
+            </div>
+
+            <div class="rankmission-list-container">
+                <div class="table-header">
+                    <h3>Daftar Loyalty Rank dan Mission</h3>
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Search rank..." id="missionSearchInput">
+                    </div>
+                </div>
+				
+				<div class="form-group">
+					<label for="gender">Nama Rank</label>
+					<select class="form-select w-25" id="location">
+						<option value="">Pilih Rank</option>
+						<option value="lakilaki">Explorer</option>
+						<option value="perempuan">Achiever</option>
+						<option value="lakilaki">Champion</option>
+						<option value="perempuan">Legend</option>
+					</select>
+				</div>
+				
+                <table class="rankmission-table">
+                    <thead>
+                        <tr>
+							<th>Misi</th>
+							<th>Deskripsi</th>
+							<th>Penambahan Poin</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rankmissionTableBody">
                         <!-- Rank data will be populated here -->
                     </tbody>
                 </table>
@@ -389,14 +541,14 @@
         <div class="content-section" id="game-setting-section">
             <div class="header">
                 <h2>Game Setting Management</h2>
-				 <button class="btn-primary-custom" onclick="openAddRankModal()">
+				 <button class="btn-primary-custom" onclick="openAddGameSettingModal()">
                     <i class="bi bi-plus-circle"></i> Tambah Game Setting
                 </button>
             </div>
 
             <div class="game-setting-list-container">
                 <div class="table-header">
-                    <h3>Daftar Game Setting</h3>
+                    <h3>Setting Durasi Game</h3>
                     <div class="search-box">
                         <i class="bi bi-search"></i>
                         <input type="text" placeholder="Search game setting..." id="missionSearchInput">
@@ -405,9 +557,9 @@
                 <table class="game-setting-table">
                     <thead>
                         <tr>
-                            <th>Tanggal Mulai Periode</th>
-                            <th>Tanggal Selesai Periode</th>
-                            <th>Berapa Kali Bisa Dimainkan Untuk setiap Customer Loyalty Member</th>
+                            <th>Setiap Hari Bisa Berapa Kali Main Game</th>
+                            <!--<th>Tanggal Selesai Periode</th>
+                            <th>Berapa Kali Bisa Dimainkan Untuk setiap Customer Loyalty Member</th>-->
                         </tr>
                     </thead>
                     <tbody id="gameSettingTableBody">
@@ -415,13 +567,36 @@
                     </tbody>
                 </table>
             </div>
+			
+			 <div class="game-setting-list-container">
+                <div class="table-header">
+                    <h3>Setting Teks Reward di Game</h3>
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Search game setting..." id="missionSearchInput">
+                    </div>
+                </div>
+                <table class="game-setting-table">
+                    <thead>
+                        <tr>
+                            <th>Icon Hadiah</th>
+                            <th>Teks Hadiah</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="gameRewardSettingTableBody">
+                        <!-- Rank data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+			
         </div>
 		
 		<!-- Admin Management Section -->
         <div class="content-section" id="admin-mgmt-section">
             <div class="header">
                 <h2>Admin Management</h2>
-                <button class="btn-primary-custom" onclick="openAddRankModal()">
+                <button class="btn-primary-custom" onclick="openAddAdminMgmtModal()">
                     <i class="bi bi-plus-circle"></i> Tambah Admin
                 </button>
             </div>
@@ -437,12 +612,47 @@
                 <table class="admin-mgmt-table">
                     <thead>
                         <tr>
-                            <th>Username</th>
+							<th>Name</th>
+                            <th>Email</th>
+							<th>Whatsapp</th>
+                            <th>Gender</th>
                             <th>Role</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody id="adminMgmtTableBody">
+                        <!-- Rank data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+		
+		<!-- Instructor Management Section -->
+        <div class="content-section" id="instructor-mgmt-section">
+            <div class="header">
+                <h2>Instructor Management</h2>
+                <button class="btn-primary-custom" onclick="openAddRankModal()">
+                    <i class="bi bi-plus-circle"></i> Tambah Instructor
+                </button>
+            </div>
+
+            <div class="instructor-mgmt-list-container">
+                <div class="table-header">
+                    <h3>Daftar Instructor Management</h3>
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Search instructor..." id="missionSearchInput">
+                    </div>
+                </div>
+                <table class="instructor-mgmt-table">
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="instructorMgmtTableBody">
                         <!-- Rank data will be populated here -->
                     </tbody>
                 </table>
@@ -486,7 +696,7 @@
         <div class="content-section" id="email-template-section">
             <div class="header">
                 <h2>Email Template Management</h2>
-				 <button class="btn-primary-custom" onclick="openAddWhatsappTemplateModal()">
+				 <button class="btn-primary-custom" onclick="openAddEmailTemplateModal()">
                     <i class="bi bi-plus-circle"></i> Add Email Template
                 </button>
             </div>
@@ -585,11 +795,166 @@
             </div>
         </div>
 	
+	<!-- add program modal-->
+	 <div class="modal-overlay" id="programModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Program</h3>
+                <button class="modal-close" onclick="closeCustomerModal()">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+					 <div class="form-group">
+						<label for="firstName">Program Name</label>
+						<input type="text" class="form-control" id="firstName" placeholder="Masukkan Nama Program">
+					</div>
+				
+                
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary-custom" onclick="closeCustomerModal()">Cancel</button>
+                <button class="btn-primary-custom" onclick="savePurchase()">Save</button>
+            </div>
+        </div>
+    </div>
+	
+	<!-- add rank modal-->
+	 <div class="modal-overlay" id="addRankModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Rank</h3>
+                <button class="modal-close" onclick="closeCustomerModal()">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+				 <div class="form-group">
+						<label for="firstName">Rank Name</label>
+						<input type="text" class="form-control" id="firstName" placeholder="Masukkan Nama Rank">
+					</div>
+					
+					 <div class="form-group">
+						<label for="firstName">Poin Awal</label>
+						<input type="text" class="form-control" id="firstName" placeholder="Masukkan Poin Awal">
+					</div>
+					
+					 <div class="form-group">
+						<label for="firstName">Poin Akhir</label>
+						<input type="text" class="form-control" id="firstName" placeholder="Masukkan Poin Akhir">
+					</div>
+				
+					
+					<div class="form-group">
+						<label for="rewardImage">Upload Gambar Icon</label>
+						<label>Extension file yang diijinkan adalah jpeg dan jpg. Max 100 KB. Bisa dicompress dulu kl terlalu besar sizenya.</label>
+						<input type="file" class="form-control" id="rewardImage" placeholder="https://example.com/image.jpg">
+					</div>
+				
+					 <div class="form-group">
+						<label for="firstName">Benefit I</label>
+						<input type="text" class="form-control" id="firstName" placeholder="Masukkan Benefit I">
+					</div>
+					
+					 <div class="form-group">
+						<label for="firstName">Benefit II</label>
+						<input type="text" class="form-control" id="firstName" placeholder="Masukkan Benefit II">
+					</div>
+					
+					 <div class="form-group">
+						<label for="firstName">Benefit III</label>
+						<input type="text" class="form-control" id="firstName" placeholder="Masukkan Benefit III">
+					</div>
+                
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary-custom" onclick="closeCustomerModal()">Cancel</button>
+                <button class="btn-primary-custom" onclick="savePurchase()">Save</button>
+            </div>
+        </div>
+    </div>
+	
+	 <div class="modal-overlay" id="addMissionModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Mission</h3>
+                <button class="modal-close" onclick="closeCustomerModal()">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+				 <div class="form-group">
+						<label for="firstName">Nama Misi</label>
+						<input type="text" class="form-control" id="firstName" placeholder="Masukkan Nama Misi">
+					</div>
+					
+					 <div class="form-group">
+						<label for="firstName">Deskripsi</label>
+						<input type="text" class="form-control" id="firstName" placeholder="Masukkan Deskripsi">
+					</div>
+                
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary-custom" onclick="closeCustomerModal()">Cancel</button>
+                <button class="btn-primary-custom" onclick="savePurchase()">Save</button>
+            </div>
+        </div>
+    </div>
+	
+	<!-- add enrollment modal-->
+	 <div class="modal-overlay" id="enrollmentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Enrollment</h3>
+                <button class="modal-close" onclick="closeCustomerModal()">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+					 <div class="form-group">
+						<label for="gender">Student</label>
+						<select class="form-select" id="location">
+							<option value="">Pilih Student</option>
+							<option value="lakilaki">Andi Pratomo</option>
+							<option value="perempuan">Siti Nurhaliza</option>
+						</select>
+					</div>
+				
+					 <div class="form-group">
+						<label for="gender">Program</label>
+						<select class="form-select" id="location">
+							<option value="">Pilih Program</option>
+							<option value="lakilaki">Intro to 2D Modelling</option>
+							<option value="perempuan">Intro to 3D Modelling</option>
+						</select>
+					</div>
+				
+				 <div class="form-group">
+						<label for="gender">Jumlah Sesi</label>
+						<select class="form-select" id="location">
+							<option value="">Pilih Jumlah Sesi</option>
+							<option value="lakilaki">1 jam</option>
+							<option value="perempuan">2 jam</option>
+						</select>
+					</div>
+                
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary-custom" onclick="closeCustomerModal()">Cancel</button>
+                <button class="btn-primary-custom" onclick="savePurchase()">Save</button>
+            </div>
+        </div>
+    </div>
+	
 	<!-- Add Customer Modal -->
     <div class="modal-overlay" id="customerModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Add Customer</h3>
+                <h3>Add Student</h3>
                 <button class="modal-close" onclick="closeCustomerModal()">
                     <i class="bi bi-x"></i>
                 </button>
@@ -650,7 +1015,125 @@
             </div>
             <div class="modal-footer">
                 <button class="btn-secondary-custom" onclick="closeCustomerModal()">Cancel</button>
-                <button class="btn-primary-custom" onclick="savePurchase()">Save Purchase</button>
+                <button class="btn-primary-custom" onclick="savePurchase()">Save</button>
+            </div>
+        </div>
+    </div>
+	
+	<!-- Add instructor Modal -->
+    <div class="modal-overlay" id="instructorModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Instructor</h3>
+                <button class="modal-close" onclick="closeCustomerModal()">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+					 <div class="form-group">
+						<label for="firstName">First Name</label>
+						<input type="text" class="form-control" id="firstName" placeholder="Masukkan Nama Depan Customer">
+					</div>
+				
+					<div class="form-group">
+						<label for="firstName">Last Name</label>
+						<input type="text" class="form-control" id="lastName" placeholder="Masukkan Nama Belakang Customer">
+					</div>
+					
+					<div class="form-group">
+						<label for="whatsappNumber">Whatsapp Number</label>
+						<input type="text" class="form-control" id="whatsappNumber" placeholder="Masukkan Nomor Whatsapp">
+					</div>
+					
+					<div class="form-group">
+						<label for="email">Email</label>
+						<input type="text" class="form-control" id="email" placeholder="Masukkan Email">
+					</div>
+				
+					<div class="form-group">
+						<label for="gender">Gender</label>
+						<select class="form-control" id="location">
+							<option value="">Pilih Gender</option>
+							<option value="lakilaki">Laki-Laki</option>
+							<option value="perempuan">Perempuan</option>
+						</select>
+					</div>
+					
+					<div class="form-group">
+                        <label for="birthday">Birthday</label>
+                        <input type="date" class="form-control" id="birthday">
+                    </div>
+					
+                
+                
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary-custom" onclick="closeCustomerModal()">Cancel</button>
+                <button class="btn-primary-custom" onclick="savePurchase()">Save</button>
+            </div>
+        </div>
+    </div>
+	
+	<!-- Add admin Modal -->
+    <div class="modal-overlay" id="adminMgmtModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Admin Mgmt</h3>
+                <button class="modal-close" onclick="closeCustomerModal()">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+					 <div class="form-group">
+						<label for="firstName">First Name</label>
+						<input type="text" class="form-control" id="firstName" placeholder="Masukkan Nama Depan Customer">
+					</div>
+				
+					<div class="form-group">
+						<label for="firstName">Last Name</label>
+						<input type="text" class="form-control" id="lastName" placeholder="Masukkan Nama Belakang Customer">
+					</div>
+					
+					<div class="form-group">
+						<label for="whatsappNumber">Whatsapp Number</label>
+						<input type="text" class="form-control" id="whatsappNumber" placeholder="Masukkan Nomor Whatsapp">
+					</div>
+					
+					<div class="form-group">
+						<label for="email">Email</label>
+						<input type="text" class="form-control" id="email" placeholder="Masukkan Email">
+					</div>
+				
+					<div class="form-group">
+						<label for="gender">Gender</label>
+						<select class="form-control" id="location">
+							<option value="">Pilih Gender</option>
+							<option value="lakilaki">Laki-Laki</option>
+							<option value="perempuan">Perempuan</option>
+						</select>
+					</div>
+					
+					<div class="form-group">
+                        <label for="birthday">Birthday</label>
+                        <input type="date" class="form-control" id="birthday">
+                    </div>
+					
+					<div class="form-group">
+						<label for="email">Role</label>
+						<label for="email">Admin</label>
+					</div>
+                
+					<div class="form-group">
+						<label for="email">Password</label>
+						<label for="email">P@ssw0rd</label>
+					</div>
+                
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary-custom" onclick="closeCustomerModal()">Cancel</button>
+                <button class="btn-primary-custom" onclick="savePurchase()">Save</button>
             </div>
         </div>
     </div>
@@ -720,17 +1203,87 @@
             </div>
             <div class="modal-footer">
                 <button class="btn-secondary-custom" onclick="closeCustomerModal()">Cancel</button>
-                <button class="btn-primary-custom" onclick="savePurchase()">Save Purchase</button>
+                <button class="btn-primary-custom" onclick="savePurchase()">Save</button>
             </div>
         </div>
     </div>
+	
+	<!-- Add Admin Mgmt Modal -->
+    <!--<div class="modal-overlay" id="adminMgmtModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Admin</h3>
+                <button class="modal-close" onclick="closeAdminModal()">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+					 <div class="form-group">
+						<label for="firstName">First Name</label>
+						<input type="text" class="form-control" id="firstName" placeholder="Masukkan Nama Depan Lead">
+					</div>
+				
+					<div class="form-group">
+						<label for="firstName">Last Name</label>
+						<input type="text" class="form-control" id="lastName" placeholder="Masukkan Nama Belakang Lead">
+					</div>
+					
+					<div class="form-group">
+						<label for="whatsappNumber">Whatsapp Number</label>
+						<input type="text" class="form-control" id="whatsappNumber" placeholder="Masukkan Nomor Whatsapp">
+					</div>
+					
+					<div class="form-group">
+						<label for="email">Email</label>
+						<input type="text" class="form-control" id="email" placeholder="Masukkan Email">
+					</div>
+				
+					<div class="form-group">
+						<label for="gender">Gender</label>
+						<select class="form-control" id="location">
+							<option value="">Pilih Gender</option>
+							<option value="lakilaki">Laki-Laki</option>
+							<option value="perempuan">Perempuan</option>
+						</select>
+					</div>
+					
+					<div class="form-group">
+                        <label for="birthday">Birthday</label>
+                        <input type="date" class="form-control" id="birthday">
+                    </div>
+					
+                
+                <div class="form-group">
+                    <label for="course">Kursus yang Diambil</label>
+                    <select class="form-control" id="course">
+                        <option value="">Pilih Kursus</option>
+                        <option value="web-development" data-price="3500000">Web Development - Rp 3.500.000</option>
+                        <option value="mobile-development" data-price="4000000">Mobile Development - Rp 4.000.000</option>
+                        <option value="ui-ux-design" data-price="3000000">UI/UX Design - Rp 3.000.000</option>
+                        <option value="data-science" data-price="5000000">Data Science - Rp 5.000.000</option>
+                        <option value="digital-marketing" data-price="2500000">Digital Marketing - Rp 2.500.000</option>
+                        <option value="graphic-design" data-price="2750000">Graphic Design - Rp 2.750.000</option>
+                        <option value="machine-learning" data-price="6000000">Machine Learning - Rp 6.000.000</option>
+                        <option value="blockchain-development" data-price="5500000">Blockchain Development - Rp 5.500.000</option>
+                    </select>
+                </div>
+                
+                
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary-custom" onclick="closeCustomerModal()">Cancel</button>
+                <button class="btn-primary-custom" onclick="savePurchase()">Save</button>
+            </div>
+        </div>
+    </div>-->
 
 
     <!-- History Modal -->
     <div class="modal-overlay" id="historyModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Customer Activity History</h3>
+                <h3>Student Activity History</h3>
                 <button class="modal-close" onclick="closeHistoryModal()">
                     <i class="bi bi-x"></i>
                 </button>
@@ -753,14 +1306,54 @@
                     </div>
                 </div>
                 
+				<!--		
                 <h4 class="mt-4 mb-3">Purchase History</h4>
                 <div id="historyItems">
-                    <!-- History items will be populated here -->
                 </div>
+				-->
                 
                 <h4 class="mt-4 mb-3">Loyalty Missions</h4>
                 <div id="loyaltyMissions">
                     <!-- Loyalty missions will be populated here -->
+					<div class="card-body">
+						 <div class="overflow-x-auto"> 
+							 <table class="w-full"> 
+								 <thead> 
+									 <tr class="border-b"> 
+										 <th class="text-left py-3 px-4">Tanggal</th> 
+										  <th class="text-left py-3 px-4">Jam</th> 
+										 <th class="text-left py-3 px-4">Deskripsi</th> 
+										 <th class="text-right py-3 px-4">Poin</th> 
+										 <th class="text-center py-3 px-4">Status</th> 
+									 </tr> 
+								 </thead> 
+								 <tbody id="historyTableBody"> 
+									 
+										<tr class="border-b hover:bg-gray-50">
+											<td class="py-3 px-4">
+												<div class="text-sm">16 Januari 2024</div>
+											</td>
+											<td class="py-3 px-4">
+												<div class="text-sm">13:00</div>
+											</td>
+											<td class="py-3 px-4">
+												<div class="font-medium text-sm">Menyukai Instagram Lembaga Kursus</div>
+											</td>
+											<td class="py-3 px-4 text-right">
+												<span class="font-bold text-gray-600">
+													N/A
+												</span>
+											</td>
+											<td class="py-3 px-4 text-center">
+												<span class="px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+													Waiting for Approval
+												</span>
+											</td>
+										</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
                 </div>
             </div>
             <div class="modal-footer">
@@ -824,7 +1417,7 @@
     <div class="modal-overlay" id="addWhatsappTemplateModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Tambah Misi Baru</h3>
+                <h3>Tambah Whatsapp Template Baru</h3>
                 <button class="modal-close" onclick="closeAddWhatsappTemplateModal()">
                     <i class="bi bi-x"></i>
                 </button>
@@ -852,6 +1445,153 @@
             </div>
         </div>
     </div>
+	
+	
+    <div class="modal-overlay" id="addEmailTemplateModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Tambah Email Template Baru</h3>
+                <button class="modal-close" onclick="closeAddWhatsappTemplateModal()">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="newWhatsappTemplateName">Nama Email Template</label>
+                    <input type="text" class="form-control" id="newWhatsappTemplateName" placeholder="Masukkan nama email template">
+                </div>
+                <div class="form-group">
+                    <label for="newWhatsappTemplateDescription">Title Email</label>
+                    <textarea class="form-control" id="newWhatsappTemplateDescription" rows="3" placeholder="Masukkan title email"></textarea>
+                </div>
+				 <div class="form-group">
+                    <label for="newWhatsappTemplateDescription">Body Email</label>
+                    <textarea class="form-control" id="newWhatsappTemplateDescription" rows="3" placeholder="Masukkan body email"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="newWhatsappTemplateStatus">Status</label>
+                    <select class="form-control" id="newWhatsappTemplateStatus">
+                        <option value="active">Aktif</option>
+                        <option value="inactive">Tidak Aktif</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary-custom" onclick="closeAddWhatsappTemplateModal()">Batal</button>
+                <button class="btn-primary-custom" onclick="addNewWhatsappTemplate()">Simpan</button>
+            </div>
+        </div>
+    </div>
+	
+	
+    <div class="modal-overlay" id="addGameSettingModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Tambah Game Setting Baru</h3>
+                <button class="modal-close" onclick="closeAddWhatsappTemplateModal()">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="newWhatsappTemplateName">Setiap Hari bisa berapa kali main game</label>
+                    <input type="text" class="form-control" id="newWhatsappTemplateName" placeholder="Setiap hari berapa kali main game">
+                </div>
+                <div class="form-group">
+                    <label for="newWhatsappTemplateDescription">Teks Hadiah</label>
+                    <textarea class="form-control" id="newWhatsappTemplateDescription" rows="3" placeholder="Masukkan teks hadiah"></textarea>
+                </div>
+				  <div class="form-group">
+                    <label for="rewardImage">Upload Icon Hadiah</label>
+					<label>Extension file yang diijinkan adalah jpeg dan jpg. Max 100 KB. Bisa dicompress dulu kl terlalu besar sizenya.</label>
+                    <input type="file" class="form-control" id="rewardImage" placeholder="https://example.com/image.jpg">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary-custom" onclick="closeAddWhatsappTemplateModal()">Batal</button>
+                <button class="btn-primary-custom" onclick="addNewWhatsappTemplate()">Simpan</button>
+            </div>
+        </div>
+    </div>
+	
+	 <!-- Add Reset Mission Modal -->
+    <div class="modal-overlay" id="addResetMissionModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Tambah Reset Mission Baru</h3>
+                <button class="modal-close" onclick="closeAddResetMissionModal()">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="rewardCategory">Nama Misi</label>
+                    <select class="form-control" id="rewardCategory">
+                        <option value="">Pilih Misi</option>
+                        <option value="diskon">Absen kehadiran</option>
+                        <option value="voucher">Absen 5 hari dalam seminggu (minimal sesi 2 jam per hari)</option>
+                        <option value="kursus">Beli kursus senilai 1 juta</option>
+						<option value="kursus">Follow Instagram	</option>
+						<option value="kursus">Like Instagram post	</option>
+						<option value="kursus">Comment Instagram post	</option>
+						<option value="kursus">Buat Instagram story dengan tag lembaga kursus</option>
+						<option value="kursus">Main mini game monopoly</option>
+						<option value="kursus">Comment di Google My Business</option>
+						<option value="kursus">Refer 1 teman</option>
+						<option value="kursus">Join Academy Program</option>
+                    </select>
+                </div>
+				 <div class="form-group">
+                    <label for="rewardCategory">Daily/Weekly/Lifetime Mission</label>
+                    <select class="form-control" id="rewardCategory">
+                        <option value="">Pilih Tipe Misi</option>
+                        <option value="diskon">Daily Mission</option>
+						<option value="kursus">Weekly Mission</option>
+						<option value="kursus">Lifetime Mission</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="rewardCategory">Apakah Perlu Reset ?</label>
+                    <select class="form-control" id="rewardCategory">
+                        <option value="">Pilih Apakah Perlu Reset</option>
+                        <option value="diskon">True</option>
+						<option value="kursus">False</option>
+                    </select>
+                </div>
+				  <div class="form-group">
+                    <label for="rewardCategory">Reset Every ?</label>
+                    <select class="form-control" id="rewardCategory">
+                        <option value="">Pilih Reset Will Be Done Every</option>
+						<option value="kursus">None</option>
+                        <option value="diskon">Day</option>
+						<option value="kursus">Monday</option>
+                    </select>
+                </div>
+				<div class="form-group">
+                    <label for="rewardCategory">Max Attempt</label>
+                    <select class="form-control" id="rewardCategory">
+                        <option value="">Max Attempt</option>
+                        <option value="diskon">1</option>
+						<option value="kursus">2</option>
+						  <option value="diskon">3</option>
+						<option value="kursus">4</option>
+						  <option value="diskon">5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="rewardStatus">Status</label>
+                    <select class="form-control" id="rewardStatus">
+                        <option value="available">Aktif</option>
+                        <option value="unavailable">Non Aktif</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary-custom" onclick="closeAddRewardModal()">Batal</button>
+                <button class="btn-primary-custom" onclick="addNewReward()">Simpan</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Add Reward Modal -->
     <div class="modal-overlay" id="addRewardModal">
@@ -867,7 +1607,7 @@
                     <label for="rewardName">Nama Hadiah</label>
                     <input type="text" class="form-control" id="rewardName" placeholder="Masukkan nama hadiah">
                 </div>
-                <div class="form-group">
+                <!--<div class="form-group">
                     <label for="rewardCategory">Kategori</label>
                     <select class="form-control" id="rewardCategory">
                         <option value="">Pilih Kategori</option>
@@ -875,7 +1615,7 @@
                         <option value="voucher">Voucher Belanja</option>
                         <option value="kursus">Kursus Gratis</option>
                     </select>
-                </div>
+                </div>-->
                 <div class="form-group">
                     <label for="rewardDescription">Deskripsi</label>
                     <textarea class="form-control" id="rewardDescription" rows="3" placeholder="Masukkan deskripsi hadiah"></textarea>
@@ -885,14 +1625,86 @@
                     <input type="number" class="form-control" id="rewardPoints" placeholder="Masukkan poin yang diperlukan">
                 </div>
                 <div class="form-group">
-                    <label for="rewardImage">URL Gambar Hadiah</label>
-                    <input type="text" class="form-control" id="rewardImage" placeholder="https://example.com/image.jpg">
+                    <label for="rewardImage">Upload Gambar Hadiah</label>
+					<label>Extension file yang diijinkan adalah jpeg dan jpg. Max 100 KB. Bisa dicompress dulu kl terlalu besar sizenya.</label>
+                    <input type="file" class="form-control" id="rewardImage" placeholder="https://example.com/image.jpg">
                 </div>
-                <div class="form-group">
+                <!--<div class="form-group">
                     <label for="rewardStatus">Status</label>
                     <select class="form-control" id="rewardStatus">
                         <option value="available">Tersedia</option>
                         <option value="unavailable">Tidak Tersedia</option>
+                    </select>
+                </div>-->
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary-custom" onclick="closeAddRewardModal()">Batal</button>
+                <button class="btn-primary-custom" onclick="addNewReward()">Simpan</button>
+            </div>
+        </div>
+    </div>
+
+	 <!-- Add Rank Mission Modal -->
+    <div class="modal-overlay" id="addRankMissionModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Tambah Rank Mission Baru</h3>
+                <button class="modal-close" onclick="closeAddResetMissionModal()">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="rewardCategory">Nama Rank</label>
+                    <select class="form-control" id="rewardCategory">
+                        <option value="">Pilih Rank</option>
+                        <option value="diskon">Explorer</option>
+                        <option value="kursus">Achiever</option>
+                        <option value="voucher">Champion</option>
+						<option value="kursus">Legend</option>
+                    </select>
+                </div>
+				 <div class="form-group">
+                    <label for="rewardCategory">Nama Misi</label>
+                    <select class="form-control" id="rewardCategory">
+                        <option value="">Pilih Misi</option>
+                        <option value="diskon">Absen kehadiran</option>
+                        <option value="voucher">Absen 5 hari dalam seminggu (minimal sesi 2 jam per hari)</option>
+                        <option value="kursus">Beli kursus senilai 1 juta</option>
+						<option value="kursus">Follow Instagram	</option>
+						<option value="kursus">Like Instagram post	</option>
+						<option value="kursus">Comment Instagram post	</option>
+						<option value="kursus">Buat Instagram story dengan tag lembaga kursus</option>
+						<option value="kursus">Main mini game monopoly</option>
+						<option value="kursus">Comment di Google My Business</option>
+						<option value="kursus">Refer 1 teman</option>
+						<option value="kursus">Join Academy Program</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="rewardCategory">Penambahan Poin</label>
+                    <select class="form-control" id="rewardCategory">
+                        <option value="">Pilih Penambahan Poin</option>
+                        <option value="diskon">10 point</option>
+						<option value="kursus">20 point</option>
+						<option value="diskon">30 point</option>
+						<option value="kursus">40 point</option>
+						<option value="diskon">50 point</option>
+						<option value="kursus">60 point</option>
+						<option value="diskon">70 point</option>
+						<option value="kursus">80 point</option>
+						<option value="diskon">90 point</option>
+						<option value="kursus">100 point</option>
+						<option value="diskon">110 point</option>
+						<option value="kursus">120 point</option>
+						<option value="diskon">130 point</option>
+						<option value="kursus">140 point</option>
+						<option value="diskon">150 point</option>
+						<option value="kursus">160 point</option>
+						<option value="kursus">170 point</option>
+						<option value="diskon">180 point</option>
+						<option value="kursus">190 point</option>
+						<option value="diskon">200 point</option>
                     </select>
                 </div>
             </div>

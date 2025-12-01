@@ -38,7 +38,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
-	font-size: 12px;
+	font-size: 10px;
 }
 
 .nav-brand h3 {
@@ -157,7 +157,7 @@ body {
     margin: 0;
 }
 
-.customer-table-container, .instructor-table-container, .lead-table-container, .mission-list-container, .rank-list-container, .reward-list-container, .whatsapp-template-list-container, .loyaltymember-approval-list-container, .mission-approval-list-container, .admin-mgmt-list-container, .game-setting-list-container {
+.customer-table-container, .instructor-table-container, .lead-table-container, .mission-list-container, .rank-list-container, .reward-list-container, .whatsapp-template-list-container, .loyaltymember-approval-list-container, .mission-approval-list-container, .admin-mgmt-list-container, .instructor-mgmt-list-container, .game-setting-list-container {
     background-color: white;
     border-radius: 10px;
     padding: 20px;
@@ -198,13 +198,13 @@ body {
     color: #6c757d;
 }
 
-.customer-table, .instructor-table, .programs-table, .lead-table, .mission-table, .rank-table, .whatsapp-template-table, .loyaltymember-approval-table, .mission-approval-table, .admin-mgmt-table, .game-setting-table, .email-template-table, .reward-table {
+.customer-table, .instructor-table, .programs-table, .enrollments-table, .lead-table, .mission-table, .resetmission-table, .rank-table, .rankmission-table, .whatsapp-template-table, .loyaltymember-approval-table, .mission-approval-table, .admin-mgmt-table, .instructor-mgmt-table, .game-setting-table, .email-template-table, .reward-table {
     width: 100%;
     border-collapse: collapse;
     min-width: 1200px;
 }
 
-.customer-table th, .instructor-table th, .programs-table th, .lead-table th, .mission-table th, .rank-table th, .whatsapp-template-table th, .loyaltymember-approval-table th, .mission-approval-table th, .admin-mgmt-table th, .game-setting-table th, .email-template-table th, .reward-table th {
+.customer-table th, .instructor-table th, .programs-table th, .enrollments-table th, .lead-table th, .mission-table th, .resetmission-table th, .rank-table th, .rankmission-table th, .whatsapp-template-table th, .loyaltymember-approval-table th, .mission-approval-table th, .admin-mgmt-table th, .instructor-mgmt-table th,  .game-setting-table th, .email-template-table th, .reward-table th {
     text-align: left;
     padding: 12px 15px;
     border-bottom: 2px solid #f0f0f0;
@@ -213,13 +213,22 @@ body {
     white-space: nowrap;
 }
 
-.customer-table td, .instructor-table td, .programs-table td, .lead-table td, .mission-table td, .rank-table td, .whatsapp-template-table td, .loyaltymember-approval-table td, .mission-approval-table td, .admin-mgmt-table td, .game-setting-table td, .email-template-table td, .reward-table td {
+.customer-table td, .instructor-table td, .programs-table td, .enrollments-table td, .lead-table td, .mission-table td, .resetmission-table td, .rank-table td, .rankmission-table td, .whatsapp-template-table td, .loyaltymember-approval-table td, .mission-approval-table td, .admin-mgmt-table td, .instructor-mgmt-table td,  .game-setting-table td, .email-template-table td, .reward-table td {
     padding: 5px;
     border-bottom: 1px solid #f0f0f0;
     white-space: nowrap;
 }
 
-.customer-table tr:hover, .instructor-table tr:hover, .programs-table tr:hover, .lead-table tr:hover, .mission-table tr:hover, .rank-table tr:hover, .whatsapp-template-table tr:hover, .loyaltymember-approval-table tr:hover, .mission-approval-table tr:hover, .admin-mgmt-table tr:hover, .game-setting-table tr:hover, .email-template-table tr:hover, .reward-table tr:hover {
+.longTextStillVisible td {
+	width: 150px;
+	max-width: 150px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: normal;
+	word-wrap: break-word;
+}
+
+.customer-table tr:hover, .instructor-table tr:hover, .programs-table tr:hover, .enrollments-table tr:hover, .lead-table tr:hover, .mission-table tr:hover, .rankmission-table tr:hover, .resetmission-table tr:hover, .rank-table tr:hover, .whatsapp-template-table tr:hover, .loyaltymember-approval-table tr:hover, .mission-approval-table tr:hover, .admin-mgmt-table tr:hover, .instructor-mgmt-table tr:hover, .game-setting-table tr:hover, .email-template-table tr:hover, .reward-table tr:hover {
     background-color: #f8f9fa;
 }
 

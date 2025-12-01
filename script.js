@@ -13,7 +13,8 @@ const customers = [
         rank: 'Explorer',
 		dob: '1988-05-09',
 		profesi: 'Karyawan',
-		gender: 'Male'
+		gender: 'Male',
+		status: 'Sesi Masih Berjalan'
     },
     { 
         id: 2, 
@@ -28,7 +29,8 @@ const customers = [
         rank: 'Achiever',
 		dob: '1987-03-04',
 		profesi: 'Mahasiswa',
-		gender: 'Female'
+		gender: 'Female',
+		status: 'Sesi Sudah Habis'
     },
     { 
         id: 3, 
@@ -43,7 +45,8 @@ const customers = [
         rank: 'Achiever',
 		dob: '1987-06-06',
 		profesi: 'Wirausaha',
-		gender: 'Male'
+		gender: 'Male',
+		status: 'Sesi Masih Berjalan'
     },
     { 
         id: 4, 
@@ -58,7 +61,8 @@ const customers = [
         rank: 'Explorer',
 		dob: '1999-10-10',
 		profesi: 'Siswa',
-		gender: 'Female'
+		gender: 'Female',
+		status: 'Sesi Masih Berjalan'
     },
     { 
         id: 5, 
@@ -73,7 +77,8 @@ const customers = [
         rank: 'Legend',
 		dob: '1995-09-01',
 		profesi: 'Siswa',
-		gender: 'Male'
+		gender: 'Male',
+		status: 'Sesi Masih Berjalan'
     },
     { 
         id: 6, 
@@ -88,7 +93,8 @@ const customers = [
             rank: 'Explorer',
 			dob: '1996-01-04',
 			profesi: 'Wirausaha',
-		gender: 'Female'
+		gender: 'Female',
+		status: 'Sesi Masih Berjalan'
     },
     { 
         id: 7, 
@@ -103,7 +109,8 @@ const customers = [
             rank: 'Explorer',
 			dob: '2000-05-10',
 			profesi: 'Wirausaha',
-		gender: 'Male'
+		gender: 'Male',
+		status: 'Sesi Masih Berjalan'
     },
     { 
         id: 8, 
@@ -118,7 +125,8 @@ const customers = [
             rank: 'Explorer',
 			dob: '2004-04-03',
 			profesi: 'Mahasiswa',
-		gender: 'Female'
+		gender: 'Female',
+		status: 'Sesi Masih Berjalan'
     }
 ];
 
@@ -129,6 +137,7 @@ const instructors = [
         name: 'Andi Pratama', 
         email: 'andi@example.com',  
 		dob: '1988-05-09',
+		whatsapp: 083082984934,
 		gender: 'Male'
     },
     { 
@@ -136,6 +145,7 @@ const instructors = [
         name: 'Mira Sarado', 
         email: 'mira@example.com',  
 		dob: '1988-05-09',
+		whatsapp: 084345345345,
 		gender: 'Female'
     }
 ];
@@ -145,16 +155,31 @@ const programs = [
     { 
         id: 1, 
         name: 'Intro to 3d modelling', 
-        jmlsesi: '15 jam',  
+        /*jmlsesi: '15 jam',  
 		instructor: 'Andi Pratama, Mira Sarado',
-		studentEnrolled: 'Andi Pratamo, Siti Nurhaliza' 
+		studentEnrolled: 'Andi Pratamo, Siti Nurhaliza' */
     },
     { 
         id: 2, 
         name: 'Intro to 2d modelling', 
-        jmlsesi: '15 jam',  
-		instructor: 'Andi Pratamo, Siti Nurhaliza' 
+        /*jmlsesi: '15 jam',  
+		instructor: 'Andi Pratamo, Siti Nurhaliza' */
     },
+];
+
+const enrollments = [
+	{
+		id: 1,
+		student: 'Joni',
+		program: 'Intro to 2d modelling',
+		jmlSesi: '15 jam'
+	},
+	{
+		id: 2,
+		student: 'Joni',
+		program: 'Intro to 3d modelling',
+		jmlSesi: '17 jam'
+	}
 ];
 
 
@@ -337,44 +362,159 @@ const masterRanks = [
 		name: 'Explorer',
 		pointAwal: 0,
 		pointAkhir: 999,
-		penambahanPoin: 50
+		benefit1: 'Penambahan Poin sebanyak 50 point pada misi Absen Kehadiran',
+		benefit2: 'Penambahan Poin sebanyak 20 point pada misi Main mini game monopoly',
+		benefit3: 'Penambahan Poin sebanyak 30 point pada misi Absen 5 hari dalam seminggu (minimal sesi 2 jam per hari)',
+		image: 'https://images.unsplash.com/vector-1743349936292-e21eab62b620?q=80&w=80&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
 	},
 	{
 		id: 2,
 		name: 'Achiever',
 		pointAwal: 1000,
 		pointAkhir: 1999,
-		penambahanPoin: 100
+		benefit1: 'Penambahan Poin sebanyak 70 point pada misi Absen Kehadiran',
+		benefit2: 'Penambahan Poin sebanyak 40 point pada misi Main mini game monopoly',
+		benefit3: 'Penambahan Poin sebanyak 50 point pada misi Absen 5 hari dalam seminggu (minimal sesi 2 jam per hari)',
+		image: 'https://images.unsplash.com/vector-1743349936292-e21eab62b620?q=80&w=80&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
 	},
 	{
 		id: 3,
 		name: 'Champion',
 		pointAwal: 2000,
 		pointAkhir: 2999,
-		penambahanPoin: 150
+		benefit1: 'Penambahan Poin sebanyak 90 point pada misi Absen Kehadiran',
+		benefit2: 'Penambahan Poin sebanyak 60 point pada misi Main mini game monopoly',
+		benefit3: 'Penambahan Poin sebanyak 70 point pada misi Absen 5 hari dalam seminggu (minimal sesi 2 jam per hari)',
+		image: 'https://images.unsplash.com/vector-1743349936292-e21eab62b620?q=80&w=80&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
 	},
 	{
 		id: 4,
 		name: 'Legend',
 		pointAwal: 3000,
 		pointAkhir: 9999,
+		benefit1: 'Penambahan Poin sebanyak 110 point pada misi Absen Kehadiran',
+		benefit2: 'Penambahan Poin sebanyak 80 point pada misi Main mini game monopoly',
+		benefit3: 'Penambahan Poin sebanyak 90 point pada misi Absen 5 hari dalam seminggu (minimal sesi 2 jam per hari)',
+		image: 'https://images.unsplash.com/vector-1743349936292-e21eab62b620?q=80&w=80&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+	},
+];
+
+//Master rank mission list
+/*
+const masterRankMissions = [
+	{
+		id: 1,
+		rank: 'Explorer',
+		misi: 'Absen Kehadiran',
+		penambahanPoin: 50
+	},
+	{
+		id: 2,
+		rank: 'Achiever',
+		misi: 'Absen Kehadiran',
+		penambahanPoin: 100
+	},
+	{
+		id: 3,
+		rank: 'Champion',
+		misi: 'Absen Kehadiran',
+		penambahanPoin: 150
+	},
+	{
+		id: 4,
+		rank: 'Legend',
+		misi: 'Absen Kehadiran',
 		penambahanPoin: 200
 	},
+];
+*/
+const masterRankMissions = [
+    { 
+        id: 'buy-course', 
+        title: 'Beli Kursus', 
+        description: 'Membeli kursus baru', 
+        points: 50,
+        details: 'Pilih kursus yang telah dibeli oleh customer'
+    },
+    { 
+        id: 'follow-instagram', 
+        title: 'Follow Instagram', 
+        description: 'Mengikuti akun Instagram lembaga kursus', 
+        points: 10,
+        details: 'Customer telah mengikuti akun Instagram resmi lembaga kursus'
+    },
+    { 
+        id: 'like-instagram', 
+        title: 'Like Instagram Post', 
+        description: 'Menyukai postingan Instagram', 
+        points: 5,
+        details: 'Customer telah menyukai postingan terbaru di Instagram'
+    },
+    { 
+        id: 'comment-instagram', 
+        title: 'Comment Instagram Post', 
+        description: 'Berkomentar pada postingan Instagram', 
+        points: 15,
+        details: 'Customer telah meninggalkan komentar pada postingan Instagram'
+    },
+    { 
+        id: 'instagram-story', 
+        title: 'Buat Instagram Story', 
+        description: 'Membuat Instagram story tentang lembaga kursus', 
+        points: 25,
+        details: 'Customer telah membuat Instagram story yang menampilkan atau mereview lembaga kursus'
+    },
+    { 
+        id: 'monopoly-game', 
+        title: 'Main Mini Game Monopoly', 
+        description: 'Memainkan mini game Monopoly', 
+        points: 30,
+        details: 'Customer telah menyelesaikan satu sesi permainan Monopoly'
+    },
+    { 
+        id: 'google-review', 
+        title: 'Review di Google My Business', 
+        description: 'Memberikan review di Google My Business', 
+        points: 40,
+        details: 'Customer telah meninggalkan review positif di halaman Google My Business'
+    },
+    { 
+        id: 'refer-friend', 
+        title: 'Refer Teman', 
+        description: 'Mereferensikan teman untuk bergabung', 
+        points: 100,
+        details: 'Customer telah berhasil mereferensikan teman yang mendaftar kursus'
+    }
 ];
 
 //Master game setting list
 const masterGameSettings = [
 	{
 		id: 1,
-		tglMulaiPeriode: '2025-05-01',
-		tglSelesaiPeriode: '2025-05-31',
-		berapaKaliBisaDimainkanPerLoyaltyMember: 3
+		berapaKaliBisaDimainkanDalamSehari: 1
+	}
+];
+
+const masterGameRewardSettings = [
+	{
+		id: 1,
+		iconHadiah: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=120&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+		teksHadiah: '+25 poin',
 	},
 	{
 		id: 2,
-		tglMulaiPeriode: '2025-10-01',
-		tglSelesaiPeriode: '2025-10-31',
-		berapaKaliBisaDimainkanPerLoyaltyMember: 3
+		iconHadiah: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=120&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+		teksHadiah: '+30 poin',
+	},
+	{
+		id: 3,
+		iconHadiah: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=120&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+		teksHadiah: '+35 poin',
+	},
+	{
+		id: 4,
+		iconHadiah: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=120&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+		teksHadiah: '+40 poin',
 	}
 ];
 
@@ -382,7 +522,9 @@ const masterGameSettings = [
 const masterAdmin = [
 	{
 		id: 1,
-		username: 'toni',
+		email: 'toni@gmail.com',
+		whatsapp: '08115654546',
+		gender: 'male',
 		role: 'admin',
 		hakAksesMenu: [
 			{
@@ -397,7 +539,9 @@ const masterAdmin = [
 	},
 	{
 		id: 2,
-		username: 'budi',
+		email: 'budi@gmail.com',
+		whatsapp: '08115654546',
+		gender: 'male',
 		role: 'admin',
 		hakAksesMenu: [
 			{
@@ -413,6 +557,20 @@ const masterAdmin = [
 				menu: 'mission'
 			}
 		]
+	},
+];
+
+//Master instructor mgmt list
+const masterInstructor = [
+	{
+		id: 1,
+		email: 'jodi@gmail.com',
+		role: 'instructor'
+	},
+	{
+		id: 2,
+		email: 'supri@gmail.com',
+		role: 'instructor'
 	},
 ];
 
@@ -472,63 +630,118 @@ const masterMissions = [
         id: 0, 
         name: 'Absen kehadiran', 
         description: 'Absen kehadiran per sesi', 
-        points: 100,
+        points: 10,
+        status: 'active'
+    },
+	 { 
+        id: 1, 
+        name: 'Absen 5 hari dalam seminggu (minimal sesi 2 jam per hari)', 
+        description: 'Absen 5 hari dalam seminggu (minimal sesi 2 jam per hari)', 
+        points: 30,
         status: 'active'
     },
     { 
-        id: 1, 
+        id: 2, 
         name: 'Beli kursus senilai 1 juta', 
         description: 'Membeli kursus dengan nilai minimal 1 juta rupiah', 
         points: 100,
         status: 'active'
     },
     { 
-        id: 2, 
+        id: 3, 
         name: 'Follow Instagram', 
         description: 'Mengikuti akun Instagram resmi lembaga kursus', 
-        points: 20,
-        status: 'active'
-    },
-    { 
-        id: 3, 
-        name: 'Like Instagram post', 
-        description: 'Menyukai postingan Instagram resmi lembaga kursus', 
-        points: 20,
+        points: 75,
         status: 'active'
     },
     { 
         id: 4, 
+        name: 'Like Instagram post', 
+        description: 'Menyukai postingan Instagram resmi lembaga kursus', 
+        points: 5,
+        status: 'active'
+    },
+    { 
+        id: 5, 
         name: 'Comment Instagram post', 
         description: 'Berkomentar pada postingan Instagram resmi lembaga kursus', 
         points: 20,
         status: 'active'
     },
     { 
-        id: 5, 
+        id: 6, 
         name: 'Buat Instagram story dengan tag lembaga kursus', 
         description: 'Membuat Instagram story dan men-tag akun resmi lembaga kursus', 
         points: 20,
         status: 'active'
     },
     { 
-        id: 6, 
+        id: 7, 
         name: 'Main mini game monopoly', 
         description: 'Menyelesaikan satu sesi permainan mini monopoly', 
         points: 20,
         status: 'active'
     },
     { 
-        id: 7, 
+        id: 8, 
         name: 'Comment di Google My Business', 
         description: 'Memberikan review positif di halaman Google My Business', 
         points: 30,
         status: 'active'
     },
     { 
-        id: 8, 
+        id: 9, 
         name: 'Refer 1 teman', 
         description: 'Mereferensikan 1 teman yang berhasil mendaftar kursus', 
         points: 100,
+        status: 'active'
+    },
+	 { 
+        id: 10, 
+        name: 'Join Academy Program', 
+        description: 'Gabung di Academy Program', 
+        points: 100,
+        status: 'active'
+    }
+];
+
+// Master resetmissions list
+
+const masterResetMissions = [
+    { 
+        id: 0, 
+        name: 'Absen kehadiran', 
+        type: 'DailyMission', 
+        isReset: true,
+		resetEvery: 'day',
+		maxAttempt: 1,
+        status: 'active'
+    },
+    { 
+        id: 1, 
+        name: 'Main mini game monopoly', 
+        type: 'DailyMission', 
+		isReset: true,
+        resetEvery: 'day',
+		maxAttempt: 1,
+        status: 'active'
+    },
+	  { 
+        id: 2, 
+        name: 'Join Academy Program', 
+        type: 'LifetimeMission', 
+		isReset: false,
+		maxAttempt: 1,
+        resetEvery: '',
+        status: 'active'
+    },
+    { 
+        id: 3, 
+        name: 'Absen 5 hari dalam seminggu (minimal sesi 2 jam per hari)', 
+        type: 'WeeklyMission',
+		isReset: true,
+		maxAttempt: 5,
+        resetEvery: 'monday',
         status: 'active'
     }
 ];
@@ -650,24 +863,28 @@ const masterRewards = [
         id: 1,
         name: 'Diskon 10%',
         description: 'Dapatkan diskon 10% untuk pembelian kursus berikutnya',
+		image: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=250&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         points: 500
     },
     {
         id: 2,
         name: 'Voucher Belanja Rp 50.000',
         description: 'Tukarkan poin dengan voucher belanja senilai Rp 50.000',
+		image: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=250&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         points: 1000
     },
     {
         id: 3,
         name: 'Kursus Gratis',
         description: 'Dapatkan 1 kursus gratis (pilih sendiri)',
+		image: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=250&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 		points: 1200
     },
     {
         id: 4,
         name: 'Special Bundle - Web + Mobile',
         description: 'Paket spesial Web Development + Mobile Development',
+		image: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?q=80&w=250&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         points: 750,
     }
 ];
@@ -704,6 +921,11 @@ function initCustomerTable() {
         const customerType = customer.totalTransaction >= 10000000 ? 'VIP' : 'Regular';
         const duration = calculateDuration(customer.joinDate);
 		const age = calculateAge(customer.dob);
+		
+		let statusColor = "black";
+		
+		if(customer.status == 'Sesi Sudah Habis')
+			statusColor = "red";
         
         row.innerHTML = `
             <td>
@@ -715,7 +937,7 @@ function initCustomerTable() {
             </td>
             <td>${customer.email}</td>
             <td>${customer.whatsapp}</td>
-            <td>${customer.isLoyalty ? 'Loyalty Member' : 'Regular'}</td>
+            <td><span style="color:${statusColor};">${customer.status}</span></td>
             <td><span class="customer-rank">${customer.rank}</span></td>
              <td>${customer.loyaltyPoints} pts</td>
             <td>${age}</td>
@@ -726,9 +948,7 @@ function initCustomerTable() {
                     <button class="btn-action btn-view" onclick="viewHistory(${customer.id}, '${customer.name}', '${customer.avatar}')" title="View History">
                         <i class="bi bi-eye-fill"></i>
                     </button>
-                    <button class="btn-action btn-loyalty-mission" onclick="openLoyaltyMissionModalForCustomer(${customer.id})" title="Submit Loyalty Mission">
-                        <i class="bi bi-trophy-fill"></i>
-                    </button>
+
 					<button class="btn-whatsapp-custom" onclick="sendWhatsAppMarketing()">
 						<i class="bi bi-whatsapp"></i>
 					</button>
@@ -829,9 +1049,6 @@ function initProgramTable() {
             <td>
                ${program.name}
             </td>
-            <td>${program.jmlsesi}</td>
-            <td>${program.instructor}</td>
-            <td>${program.studentEnrolled}</td>
 			<td>
                 <div class="action-buttons">
                     <button class="btn-action btn-edit" onclick="editMission(${program.id})" title="Edit Mission">
@@ -847,6 +1064,35 @@ function initProgramTable() {
     });
 }
 
+// Initialize enrollment table
+function initEnrollmentTable() {
+    const tableBody = document.getElementById('enrollmentsTableBody');
+    tableBody.innerHTML = '';
+    
+    enrollments.forEach(enrollment => {
+        const row = document.createElement('tr');
+        
+        row.innerHTML = `
+			<td>
+               ${enrollment.program}
+            </td>
+			<td>
+               ${enrollment.jmlSesi}
+            </td>
+			<td>
+                <div class="action-buttons">
+                    <button class="btn-action btn-edit" onclick="editMission(${enrollment.id})" title="Edit Mission">
+                        <i class="bi bi-pencil-fill"></i>
+                    </button>
+                    <button class="btn-action btn-delete" onclick="deleteMission(${enrollment.id})" title="Delete Mission">
+                        <i class="bi bi-trash-fill"></i>
+                    </button>
+                </div>
+            </td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
 
 // Initialize mission table
 function initMissionTable() {
@@ -859,7 +1105,6 @@ function initMissionTable() {
         row.innerHTML = `
             <td>${mission.name}</td>
             <td>${mission.description}</td>
-            <td>${mission.points} poin</td>
             <td>
                 <span class="mission-status ${mission.status === 'active' ? 'status-active' : 'status-inactive'}">
                     ${mission.status === 'active' ? 'Aktif' : 'Tidak Aktif'}
@@ -880,6 +1125,40 @@ function initMissionTable() {
     });
 }
 
+// Initialize reset mission table
+function initResetMissionTable() {
+    const tableBody = document.getElementById('resetmissionTableBody');
+    tableBody.innerHTML = '';
+    
+    masterResetMissions.forEach(resetmission => {
+        const row = document.createElement('tr');
+        
+        row.innerHTML = `
+            <td>${resetmission.name}</td>
+            <td>${resetmission.type}</td>
+            <td>${resetmission.isReset}</td>
+			  <td>${resetmission.resetEvery}</td>
+			  <td>${resetmission.maxAttempt}</td>
+            <td>
+                <span class="mission-status ${resetmission.status === 'active' ? 'status-active' : 'status-inactive'}">
+                    ${resetmission.status === 'active' ? 'Aktif' : 'Tidak Aktif'}
+                </span>
+            </td>
+            <td>
+                <div class="action-buttons">
+                    <button class="btn-action btn-edit" onclick="editMission(${resetmission.id})" title="Edit Mission">
+                        <i class="bi bi-pencil-fill"></i>
+                    </button>
+                    <button class="btn-action btn-delete" onclick="deleteMission(${resetmission.id})" title="Delete Mission">
+                        <i class="bi bi-trash-fill"></i>
+                    </button>
+                </div>
+            </td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
+
 // Initialize rank table
 function initRankTable() {
     const tableBody = document.getElementById('rankTableBody');
@@ -891,14 +1170,43 @@ function initRankTable() {
         row.innerHTML = `
             <td>${rank.name}</td>
             <td>${rank.pointAwal}-${rank.pointAkhir} poin</td>
-            <td>Absen Kehadiran</td>
-			<td>${rank.penambahanPoin}</td>
+			<td><img src="${rank.image}" alt="${rank.image}"></td>
+			<td>${rank.benefit1}</td>
+			<td>${rank.benefit2}</td>
+			<td>${rank.benefit3}</td>
             <td>
                 <div class="action-buttons">
                     <button class="btn-action btn-edit" onclick="editMission(${rank.id})" title="Edit Rank">
                         <i class="bi bi-pencil-fill"></i>
                     </button>
                     <button class="btn-action btn-delete" onclick="deleteMission(${rank.id})" title="Delete Rank">
+                        <i class="bi bi-trash-fill"></i>
+                    </button>
+                </div>
+            </td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
+
+// Initialize rank mission table
+function initRankMissionTable() {
+    const tableBody = document.getElementById('rankmissionTableBody');
+    tableBody.innerHTML = '';
+   
+    masterRankMissions.forEach(rankMission => {
+        const row = document.createElement('tr');
+        
+        row.innerHTML = `
+            <td>${rankMission.title}</td>
+			<td>${rankMission.description}</td>
+			<td>${rankMission.points}</td>
+            <td>
+                <div class="action-buttons">
+                    <button class="btn-action btn-edit" onclick="editMission(${rankMission.id})" title="Edit Rank">
+                        <i class="bi bi-pencil-fill"></i>
+                    </button>
+                    <button class="btn-action btn-delete" onclick="deleteMission(${rankMission.id})" title="Delete Rank">
                         <i class="bi bi-trash-fill"></i>
                     </button>
                 </div>
@@ -919,6 +1227,7 @@ function initRewardTable() {
         row.innerHTML = `
             <td>${reward.name}</td>
             <td>${reward.description}</td>
+			<td><img src="${reward.image}" alt="${reward.image}"></td>
             <td>${reward.points} poin</td>
             <td>
                 <div class="action-buttons">
@@ -945,15 +1254,39 @@ function initGameSettingTable() {
         const row = document.createElement('tr');
         
         row.innerHTML = `
-            <td>${gameSetting.tglMulaiPeriode}</td>
-            <td>${gameSetting.tglSelesaiPeriode}</td>
-            <td>${gameSetting.berapaKaliBisaDimainkanPerLoyaltyMember} kali</td>
+            <td>${gameSetting.berapaKaliBisaDimainkanDalamSehari}</td>
             <td>
                 <div class="action-buttons">
                     <button class="btn-action btn-edit" onclick="editMission(${gameSetting.id})" title="Edit Rank">
                         <i class="bi bi-pencil-fill"></i>
                     </button>
                     <button class="btn-action btn-delete" onclick="deleteMission(${gameSetting.id})" title="Delete Rank">
+                        <i class="bi bi-trash-fill"></i>
+                    </button>
+                </div>
+            </td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
+
+// Initialize game reward setting table
+function initGameRewardSettingTable() {
+    const tableBody = document.getElementById('gameRewardSettingTableBody');
+    tableBody.innerHTML = '';
+    
+    masterGameRewardSettings.forEach(gameRewardSetting => {
+        const row = document.createElement('tr');
+        
+        row.innerHTML = `
+			<td><img src="${gameRewardSetting.iconHadiah}" alt="${gameRewardSetting.iconHadiah}"></td>
+            <td>${gameRewardSetting.teksHadiah}</td>
+            <td>
+                <div class="action-buttons">
+                    <button class="btn-action btn-edit" onclick="editMission(${gameRewardSetting.id})" title="Edit Rank">
+                        <i class="bi bi-pencil-fill"></i>
+                    </button>
+                    <button class="btn-action btn-delete" onclick="deleteMission(${gameRewardSetting.id})" title="Delete Rank">
                         <i class="bi bi-trash-fill"></i>
                     </button>
                 </div>
@@ -973,7 +1306,9 @@ function initAdminMgmtTable() {
         const row = document.createElement('tr');
         
         row.innerHTML = `
-            <td>${admin.username}</td>
+            <td>${admin.email}</td>
+            <td>${admin.whatsapp}</td>
+			<td>${admin.gender}</td>
             <td>${admin.role}</td>
             <td>
                 <div class="action-buttons">
@@ -981,6 +1316,33 @@ function initAdminMgmtTable() {
                         <i class="bi bi-pencil-fill"></i>
                     </button>
                     <button class="btn-action btn-delete" onclick="deleteMission(${admin.id})" title="Delete Rank">
+                        <i class="bi bi-trash-fill"></i>
+                    </button>
+                </div>
+            </td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
+
+
+// Initialize Instructor Mgmt table
+function initInstructorMgmtTable() {
+    const tableBody = document.getElementById('instructorMgmtTableBody');
+    tableBody.innerHTML = '';
+    
+    masterInstructor.forEach(instructor => {
+        const row = document.createElement('tr');
+        
+        row.innerHTML = `
+            <td>${instructor.email}</td>
+            <td>${instructor.role}</td>
+            <td>
+                <div class="action-buttons">
+                    <button class="btn-action btn-edit" onclick="editMission(${instructor.id})" title="Edit Rank">
+                        <i class="bi bi-pencil-fill"></i>
+                    </button>
+                    <button class="btn-action btn-delete" onclick="deleteMission(${instructor.id})" title="Delete Rank">
                         <i class="bi bi-trash-fill"></i>
                     </button>
                 </div>
@@ -1362,6 +1724,42 @@ function openCustomerModal() {
     document.getElementById('purchaseDate').value = today;
 }
 
+function openEnrollmentModal() {
+	document.getElementById('enrollmentModal').classList.add('active');
+}
+
+function openProgramModal() {
+	document.getElementById('programModal').classList.add('active');
+}
+
+function openAddRankModal() {
+	//alert('add rank');
+	document.getElementById('addRankModal').classList.add('active');
+}
+
+function openAddMissionModal() {
+	//alert('add mission');
+	document.getElementById('addMissionModal').classList.add('active');
+}
+
+// Open instructor modal
+function openInstructorModal() {
+	document.getElementById('instructorModal').classList.add('active');
+    //document.getElementById('instructorModal').classList.add('active');
+}
+
+function openAddEmailTemplateModal() {
+	document.getElementById('addEmailTemplateModal').classList.add('active');
+}
+
+function openAddGameSettingModal() {
+	document.getElementById('addGameSettingModal').classList.add('active');
+}
+
+function openAddAdminMgmtModal() {
+	document.getElementById('adminMgmtModal').classList.add('active');
+}
+
 // Open purchase modal with pre-selected customer
 function openPurchaseModalForCustomer(customerId) {
     openPurchaseModal();
@@ -1420,11 +1818,6 @@ function closeLoyaltyMissionModal() {
     document.getElementById('missionCustomer').value = '';
     document.getElementById('missionNotes').value = '';
     selectedMission = null;
-}
-
-// Open add mission modal
-function openAddMissionModal() {
-    document.getElementById('addMissionModal').classList.add('active');
 }
 
 // Close add mission modal
@@ -1513,6 +1906,16 @@ function addNewWhatsappTemplate() {
     // Close modal and show success notification
     closeAddMissionModal();
     showNotification('Whatsapp Template added successfully!', 'success');
+}
+
+// Open add reset mission modal
+function openAddResetMissionModal() {
+    document.getElementById('addResetMissionModal').classList.add('active');
+}
+
+// Open add rank mission modal
+function openAddRankMissionModal() {
+    document.getElementById('addRankMissionModal').classList.add('active');
 }
 
 // Open add reward modal
@@ -1802,6 +2205,7 @@ function viewHistory(customerId, customerName, customerAvatar) {
     progressBar.style.width = `${percentage}%`;
     
     // Populate purchase history
+	
     const historyItems = document.getElementById('historyItems');
     historyItems.innerHTML = '';
     
@@ -1842,8 +2246,10 @@ function viewHistory(customerId, customerName, customerAvatar) {
             historyItems.appendChild(historyItem);
         });
     }
+	
     
     // Populate loyalty missions
+	
     const missionsContainer = document.getElementById('loyaltyMissions');
     missionsContainer.innerHTML = '';
     
@@ -1875,6 +2281,7 @@ function viewHistory(customerId, customerName, customerAvatar) {
             `;
             missionsContainer.appendChild(missionItem);
         });
+		
     }
     
     // Populate completed missions
@@ -2023,16 +2430,21 @@ document.addEventListener('DOMContentLoaded', function() {
 	initLeadTable();
 	initInstructorTable();
 	initProgramTable();
+	initEnrollmentTable();
     initMissionTable();
+	initResetMissionTable();
 	initWhatsappTemplateTable();
 	initEmailTemplateTable();
     //initRewardGrid();
 	initRewardTable();
 	initRankTable();
+	initRankMissionTable();
 	initLoyaltyMemberApprovalTable();
 	initAdminMgmtTable();
+	initInstructorMgmtTable();
 	initMissionApprovalTable();
 	initGameSettingTable();
+	initGameRewardSettingTable();
 	initUserProfileMenu();
 });
 
