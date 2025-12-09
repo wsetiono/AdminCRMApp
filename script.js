@@ -167,18 +167,41 @@ const programs = [
     },
 ];
 
+const assignments = [
+	{
+		id: 1,
+		tglsesi: 'Selasa, 09 Des 2025',
+		jamsesi: '13.00',
+		namastudent: 'Anto',
+		namaprogram: 'Intro to 2d modelling',
+		namainstructor: 'Budi'
+	},
+	{
+		id: 1,
+		tglsesi: 'Selasa, 09 Des 2025',
+		jamsesi: '13.00',
+		namastudent: 'Joni',
+		namaprogram: 'Intro to 2d modelling',
+		namainstructor: 'Budi'
+	}
+];
+
 const enrollments = [
 	{
 		id: 1,
 		student: 'Joni',
 		program: 'Intro to 2d modelling',
-		jmlSesi: '15 jam'
+		jmlSesi: '15 jam',
+		sesiselesai: '15 jam',
+		statussesi: 'Sesi Sudah Berakhir'
 	},
 	{
 		id: 2,
 		student: 'Joni',
 		program: 'Intro to 3d modelling',
-		jmlSesi: '17 jam'
+		jmlSesi: '17 jam',
+		sesiselesai: '0 jam',
+		statussesi: 'Sesi Masih Berjalan'
 	}
 ];
 
@@ -1064,6 +1087,8 @@ function initProgramTable() {
     });
 }
 
+
+
 // Initialize enrollment table
 function initEnrollmentTable() {
     const tableBody = document.getElementById('enrollmentsTableBody');
@@ -1074,17 +1099,67 @@ function initEnrollmentTable() {
         
         row.innerHTML = `
 			<td>
+				Anto
+			</td>
+			<td>
                ${enrollment.program}
             </td>
 			<td>
                ${enrollment.jmlSesi}
             </td>
 			<td>
+				${enrollment.sesiselesai}
+			</td>
+			<td>
+				${enrollment.statussesi}
+			</td>
+			<td>
                 <div class="action-buttons">
                     <button class="btn-action btn-edit" onclick="editMission(${enrollment.id})" title="Edit Mission">
                         <i class="bi bi-pencil-fill"></i>
                     </button>
                     <button class="btn-action btn-delete" onclick="deleteMission(${enrollment.id})" title="Delete Mission">
+                        <i class="bi bi-trash-fill"></i>
+                    </button>
+                </div>
+            </td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
+
+
+
+// Initialize assignment table
+function initAssignmentTable() {
+    const tableBody = document.getElementById('assignmentTableBody');
+    tableBody.innerHTML = '';
+    
+    assignments.forEach(assignment => {
+        const row = document.createElement('tr');
+        
+        row.innerHTML = `
+			<td>
+               ${assignment.tglsesi}
+            </td>
+			<td>
+               ${assignment.jamsesi}
+            </td>
+			<td>
+               ${assignment.namastudent}
+            </td>
+			<td>
+               ${assignment.namaprogram}
+            </td>
+			<td>
+               ${assignment.namainstructor}
+            </td>
+			<td>
+                <div class="action-buttons">
+                    <button class="btn-action btn-edit" onclick="editMission(${assignment.id})" title="Edit Mission">
+                        <i class="bi bi-pencil-fill"></i>
+                    </button>
+                    <button class="btn-action btn-delete" onclick="deleteMission(${assignment.id})" title="Delete Mission">
                         <i class="bi bi-trash-fill"></i>
                     </button>
                 </div>
@@ -1726,6 +1801,10 @@ function openCustomerModal() {
 
 function openEnrollmentModal() {
 	document.getElementById('enrollmentModal').classList.add('active');
+}
+
+function openAssignmentModal() {
+	document.getElementById('assignmentModal').classList.add('active');
 }
 
 function openProgramModal() {
@@ -2431,6 +2510,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	initInstructorTable();
 	initProgramTable();
 	initEnrollmentTable();
+	initAssignmentTable();
     initMissionTable();
 	initResetMissionTable();
 	initWhatsappTemplateTable();

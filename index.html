@@ -33,7 +33,9 @@
 			<div class="menu-item" data-section="enrollments">
                 <i class="bi bi-people-fill"></i> <span>Enrollment</span>
             </div>
-       
+			<div class="menu-item" data-section="assignment">
+                <i class="bi bi-people-fill"></i> <span>Assingment</span>
+            </div>
 			<div class="menu-item" data-section="rank">
                 <i class="bi bi-people-fill"></i> <span>Rank</span>
             </div>
@@ -284,8 +286,11 @@
                 <table class="enrollments-table">
                     <thead>
                         <tr>
+							<th>Student Name</th>
 							<th>Program Name</th>
-                            <th>Jml Sesi</th>
+                            <th>Total Sesi</th>
+							<th>Sesi Selesai</th>
+							<th>Status Sesi</th>
                             <!--<th>Instructor</th>
 							<th>Student</th>-->
                             <th>Actions</th>
@@ -293,6 +298,65 @@
                     </thead>
                     <tbody id="enrollmentsTableBody">
                         <!-- Instructor data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+		
+			<!-- Assignment Section -->
+        <div class="content-section" id="assignment-section">
+            <div class="header">
+                <h2>Assignment Management</h2>
+				 <button class="btn-primary-custom" onclick="openAssignmentModal()">
+                    <i class="bi bi-plus-circle"></i> Add Assignment
+                </button>
+            </div>
+
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon customers">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h4>Total Assignment</h4>
+                        <p>20</p>
+                    </div>
+                </div>
+            </div>
+			
+			<!--
+			<div class="form-group">
+					<label for="gender">Nama Student</label>
+					<select class="form-select w-25" id="location">
+						<option value="">Pilih Student Name</option>
+						<option value="lakilaki">Joni</option>
+						<option value="perempuan">Siti Nurhaliza</option>
+						<option value="lakilaki">Juan Nurhaliza</option>
+					</select>
+				</div>
+			-->
+
+            <div class="assignment-table-container">
+                <div class="table-header">
+                    <h3>Assignment List</h3>
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Search assignment..." id="searchInput">
+                    </div>
+                </div>
+                <table class="assignment-table">
+                    <thead>
+                        <tr>
+							<th>Tanggal Sesi</th>
+							<th>Jam Sesi</th>
+							<th>Nama Student</th>
+							<th>Nama Program</th>
+							<th>Nama Instructor</th>
+						    <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="assignmentTableBody">
+                        <!-- Assignment data will be populated here -->
                     </tbody>
                 </table>
             </div>
@@ -942,6 +1006,62 @@
 							<option value="">Pilih Jumlah Sesi</option>
 							<option value="lakilaki">1 jam</option>
 							<option value="perempuan">2 jam</option>
+						</select>
+					</div>
+                
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary-custom" onclick="closeCustomerModal()">Cancel</button>
+                <button class="btn-primary-custom" onclick="savePurchase()">Save</button>
+            </div>
+        </div>
+    </div>
+	
+		<!-- add assignment modal-->
+	 <div class="modal-overlay" id="assignmentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Assignment</h3>
+                <button class="modal-close" onclick="closeCustomerModal()">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+					<div class="form-group">
+                        <label for="birthday">Tanggal Sesi</label>
+                        <input type="date" class="form-control" id="birthday">
+                    </div>
+					
+					<div class="form-group">
+                        <label for="birthday">Jam Sesi</label>
+                        <input type="time" class="form-control" id="birthday">
+                    </div>
+				
+					 <div class="form-group">
+						<label for="gender">Nama Student</label>
+						<select class="form-select" id="location">
+							<option value="">Pilih Student</option>
+							<option value="lakilaki">Anto</option>
+							<option value="perempuan">Joni</option>
+						</select>
+					</div>
+				
+					 <div class="form-group">
+						<label for="gender">Nama Program</label>
+						<select class="form-select" id="location">
+							<option value="">Pilih Program</option>
+							<option value="lakilaki">Intro to 2D Modelling</option>
+							<option value="perempuan">Intro to 3D Modelling</option>
+						</select>
+					</div>
+				
+				 <div class="form-group">
+						<label for="gender">Nama Instructor</label>
+						<select class="form-select" id="location">
+							<option value="">Pilih Instructor</option>
+							<option value="lakilaki">Budi</option>
+							<option value="perempuan">Satri</option>
 						</select>
 					</div>
                 
